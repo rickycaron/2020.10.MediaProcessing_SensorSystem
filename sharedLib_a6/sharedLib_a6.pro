@@ -18,6 +18,6 @@ HEADERS += \
 
 # Default rules for deployment.
 unix {
-    target.path = /home/shuai/Desktop/project_a6
+    #target.path = /home/yuqi/mp20-team-a6
 }
 !isEmpty(target.path): INSTALLS += target
