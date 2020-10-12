@@ -4,5 +4,5 @@
 
 example::example()
 {
- std::cout << "message from a6 team test" << std::endl;
+ std::cout << "message from a6 team test!" << std::endl;
 }
