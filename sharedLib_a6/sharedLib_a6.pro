@@ -10,11 +10,15 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    example.cpp
+    example.cpp \
+    factory.cpp \
+    vendorafactory.cpp
 
 HEADERS += \
     example.h \
-    sharedlib_a6.h
+    factory.h \
+    sharedlib_a6.h \
+    vendorafactory.h
 
 # Default rules for deployment.
 unix {
