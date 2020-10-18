@@ -12,5 +12,5 @@ public:
     std::unique_ptr<MotionSensor> createMotionSensor(int activationTime,int deactivationTime,int restrication) override;
     std::unique_ptr<GasSensor> createGasSensor() override;
 };
-
+//hello!!!!!!!
 #endif // VENDORAFACTORY_H
