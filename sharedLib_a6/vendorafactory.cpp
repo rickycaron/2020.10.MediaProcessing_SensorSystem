@@ -9,7 +9,6 @@ VendorAFactory::VendorAFactory()
 
 std::unique_ptr<SmokeSensor> VendorAFactory::createSmokeSensor()
 {
-
    std::cout << "this is VendorAFactory createSmokeSensor function" << std::endl;
    return std::make_unique<SmokeSensor>();
 }
