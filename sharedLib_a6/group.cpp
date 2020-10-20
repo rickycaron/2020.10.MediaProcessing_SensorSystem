@@ -47,15 +47,18 @@ void Group::deleteAddress()
 Group & Group::operator ++()
 {
     for(std::set<std::shared_ptr<Unit>>::iterator i=children.begin();i!=children.end();i++){
-
+        ++(**i);
     }
+    return (*this);
 }
 
 Group & Group::operator --()
 {
-
+    for(std::set<std::shared_ptr<Unit>>::iterator i=children.begin();i!=children.end();i++){
+        --(**i);
+    }
+    return (*this);
 }
-
 
 const std::shared_ptr<Unit> Group::findUnit(const std::string_view name) const
 {
