@@ -24,6 +24,16 @@ int Sensor::getSensorCount()
 }
 
 
+int Sensor::getId() const
+{
+    return id;
+}
+
+string Sensor::getVender() const
+{
+    return vender;
+}
+
 Sensor::Sensor(SensorType sensortype, string vender): sensorType(sensortype),vender(vender)
 {
     Sensor::sensorCount++;

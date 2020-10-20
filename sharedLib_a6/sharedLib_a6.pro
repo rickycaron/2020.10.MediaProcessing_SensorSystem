@@ -3,7 +3,7 @@ QT -= gui
 TEMPLATE = lib
 DEFINES += SHAREDLIB_A6_LIBRARY
 
-CONFIG += c++11
+CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -68,11 +68,14 @@ HEADERS += \
     mpt67.h \
     sendaction.h \
     sensor.h \
+    sensorCompById.h \
+    sensorCompByVendor.h \
     sharedLib_a6_global.h \
     sharedlib_a6.h \
     single.h \
     smokesensor.h \
     unit.h \
+    unitComp.h \
     vendorafactory.h \
     warnaction.h
 

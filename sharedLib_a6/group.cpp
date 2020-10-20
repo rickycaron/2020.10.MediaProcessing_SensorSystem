@@ -1,47 +1,68 @@
-#include "unit.h"
 #include "group.h"
-#include <iterator>
+#include "sensor.h"
+#include "sensorCompById.h"
 
+#include <iostream>
 
-void Group::addUnit(std::shared_ptr<Unit> newUnit)
+void Group::triggered()
 {
-    children.insert(newUnit);
-}
-
-void Group::removeUnit(std::shared_ptr<Unit> oldUnit)
-{
-    children.erase(oldUnit);
-}
-
-void Group::triggered() const
-{
+    std::cout<<"Group "<<getUnitName()<<" was triggered"<<std::endl;
     for(std::set<std::shared_ptr<Unit>>::iterator i=children.begin();i!=children.end();i++){
-        std::shared_ptr<Unit> unit = *i;
-        unit->triggered();
+        (*i)->triggered();
     }
 }
 
-/*void Group::print() const
+void Group::addUnit(const std::shared_ptr<Unit> & newUnit)
+{
+    children.insert(newUnit);
+    for(unsigned int index=0;index<getAddress().size();index++){
+        newUnit->updateAddress(getAddress()[index]);
+    }
+}
+
+void Group::removeUnit(const std::shared_ptr<Unit> & oldUnit)
+{
+    children.erase(oldUnit);
+    for(unsigned int index=0;index<getAddress().size();index++){
+        oldUnit->deleteAddress();
+    }
+}
+
+void Group::updateAddress(const std::string &newAddress)
+{
+    getAddress().push_back(newAddress);
+    for(std::set<std::shared_ptr<Unit>>::iterator i=children.begin();i!=children.end();i++){
+        (*i)->updateAddress(newAddress);
+    }
+}
+
+void Group::deleteAddress()
+{
+    getAddress().pop_back();
+    for(std::set<std::shared_ptr<Unit>>::iterator i=children.begin();i!=children.end();i++){
+        (*i)->deleteAddress();
+    }
+}
+
+void Group::operator ++()
 {
 
 }
 
-void Group::printChildren() const
+void Group::operator --()
 {
 
-}*/
+}
 
-std::shared_ptr<Unit> Group::findUnit(std::string_view name)
+
+const std::shared_ptr<Unit> Group::findUnit(const std::string_view name) const
 {
     auto iter = children.find(std::make_shared<Unit>(name));
     if(iter!=children.end()){
         return *iter;
-    }else{
-
+    }
+    else{
+        return NULL;
     }
 }
 
-bool Group::isGroup() const
-{
-    return true;
-}
