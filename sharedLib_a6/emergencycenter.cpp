@@ -83,7 +83,7 @@ void EmergencyCenter::overviewById() const
 {
     std::cout<<"An overview of all sensors ordered by sensorId:"<<std::endl;
     for(std::set<std::shared_ptr<Sensor>>::iterator i=sensorById.begin();i!=sensorById.end();i++){
-        std::cout<<(*i)->getVendor()<<(*i)->getSensorId()<<std::endl;
+        std::cout<<(*i)->getVendor()<<(*i)->getId()<<std::endl;
     }
 }
 
@@ -91,17 +91,19 @@ void EmergencyCenter::overviewByVendor() const
 {
     std::cout<<"An overview of all sensors ordered by Vendor:"<<std::endl;
     for(std::set<std::shared_ptr<Sensor>>::iterator i=sensorByVendor.begin();i!=sensorByVendor.end();i++){
-        std::cout<<(*i)->getVendor()<<(*i)->getSensorId()<<std::endl;
+        std::cout<<(*i)->getVendor()<<(*i)->getId()<<std::endl;
     }
 }
 
-void EmergencyCenter::operator ++()
+EmergencyCenter &EmergencyCenter::operator ++()
 {
     ++controlUnit;
+    return *this;
 }
 
-void EmergencyCenter::operator --()
+EmergencyCenter &EmergencyCenter::operator --()
 {
     --controlUnit;
+    return *this;
 }
 

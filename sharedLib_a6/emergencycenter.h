@@ -25,8 +25,8 @@ public:
     void deleteFromSensorSet(const std::shared_ptr<Unit> & oldUnit);
     void overviewById() const;
     void overviewByVendor() const;
-    void operator ++();
-    void operator --();
+    EmergencyCenter & operator ++();
+    EmergencyCenter & operator --();
 private:
     std::unique_ptr<Group> controlUnit;
     std::string centerName;
