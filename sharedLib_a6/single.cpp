@@ -1,28 +1,20 @@
 #include "single.h"
 #include "sensor.h"
 
-Single::Single(std::shared_ptr<Unit> parent, std::string_view name, std::unique_ptr<Sensor> sensor):
-    Unit{parent, name}, sensorPointer{std::move(sensor)}
-{
+#include <iostream>
 
+void Single::triggered()
+{
+    std::cout<<"Single "<<getUnitName()<<" was triggered."<<std::endl;
 }
 
-void Single::setSensor(std::unique_ptr<Sensor> value)
+std::shared_ptr<Sensor> Single::getSensor() const
 {
-    sensorPointer = std::move(value);
+    return sensor;
 }
 
-bool Single::isGroup() const
+void Single::setSensor(const std::shared_ptr<Sensor> &value)
 {
-    return false;
+    sensor = value;
 }
 
-void Single::triggered() const
-{
-    sensorPointer->triggered();
-}
-
-/*void Single::print() const
-{
-
-}*/

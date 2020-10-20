@@ -6,16 +6,17 @@
 class Sensor;
 class Single : public Unit
 {
+using Unit::Unit;
 public:
-    Single(std::shared_ptr<Unit> parent, std::string_view name,std::unique_ptr<Sensor> sensor);
+    void triggered() override;
+    bool isGroup() override{return false;};
+    std::shared_ptr<Sensor> getSensor() const override;
 
-    void setSensor(std::unique_ptr<Sensor> value);
+    void setSensor(const std::shared_ptr<Sensor> &value);
 
 private:
-    std::unique_ptr<Sensor> sensorPointer;
-    bool isGroup() const override;
-    void triggered() const override;
-    //void print() const override;
+    std::shared_ptr<Sensor> sensor;
 };
 
 #endif // SINGLE_H
+

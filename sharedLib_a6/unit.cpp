@@ -1,39 +1,60 @@
 #include "unit.h"
 #include <iostream>
 
-Unit::Unit(std::shared_ptr<Unit> parent, std::string_view name):
-    unitParent{parent}, unitName{name}
-{
-
-}
-
 Unit::Unit(std::string_view name):
     unitName{name}
 {
-
+    address.emplace_back(std::string{name});
 }
 
-void Unit::setParent(std::shared_ptr<Unit> value)
-{
-    unitParent = value;
-}
-
-const std::shared_ptr<Unit> & Unit::getParent() const
-{
-    return unitParent;
-}
-
-void Unit::triggered() const
+void Unit::triggered()
 {
     std::cout<<"Unit "<<unitName<<"was triggered."<<std::endl;
 }
 
-bool Unit::isGroup() const
+std::shared_ptr<Sensor> Unit::getSensor() const
 {
-    return false;
+
 }
 
-/*void Unit::print() const
+std::vector<std::string> &Unit::getAddress()
+{
+    return address;
+}
+
+void Unit::operator ++()
 {
 
-}*/
+}
+
+void Unit::operator --()
+{
+
+}
+
+const std::shared_ptr<Unit> Unit::findUnit(std::string_view name) const
+{
+
+}
+
+void Unit::updateAddress(const std::string &newAddress)
+{
+    address.push_back(newAddress);
+}
+
+void Unit::deleteAddress()
+{
+    address.pop_back();
+}
+
+
+//Unit::Unit(std::string_view name, std::shared_ptr<Unit> parent):
+//    unitName{name},unitParent{parent}
+//{
+
+//}
+//void Unit::setParent(const std::shared_ptr<Unit> & parent)
+//{
+//    unitParent=parent;
+//}
+
