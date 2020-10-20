@@ -10,6 +10,19 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ../../../MDPT63/MPT67/alarmaction.cpp \
+    ../../../MDPT63/MPT67/emergencyaction.cpp \
+    ../../../MDPT63/MPT67/emergencycenter.cpp \
+    ../../../MDPT63/MPT67/gassensor.cpp \
+    ../../../MDPT63/MPT67/group.cpp \
+    ../../../MDPT63/MPT67/motionsensor.cpp \
+    ../../../MDPT63/MPT67/mpt67.cpp \
+    ../../../MDPT63/MPT67/sendaction.cpp \
+    ../../../MDPT63/MPT67/sensor.cpp \
+    ../../../MDPT63/MPT67/single.cpp \
+    ../../../MDPT63/MPT67/smokesensor.cpp \
+    ../../../MDPT63/MPT67/unit.cpp \
+    ../../../MDPT63/MPT67/warnaction.cpp \
     alarmaction.cpp \
     emergencyaction.cpp \
     emergencycenter.cpp \
@@ -29,6 +42,20 @@ SOURCES += \
     warnaction.cpp
 
 HEADERS += \
+    ../../../MDPT63/MPT67/MPT67_global.h \
+    ../../../MDPT63/MPT67/alarmaction.h \
+    ../../../MDPT63/MPT67/emergencyaction.h \
+    ../../../MDPT63/MPT67/emergencycenter.h \
+    ../../../MDPT63/MPT67/gassensor.h \
+    ../../../MDPT63/MPT67/group.h \
+    ../../../MDPT63/MPT67/motionsensor.h \
+    ../../../MDPT63/MPT67/mpt67.h \
+    ../../../MDPT63/MPT67/sendaction.h \
+    ../../../MDPT63/MPT67/sensor.h \
+    ../../../MDPT63/MPT67/single.h \
+    ../../../MDPT63/MPT67/smokesensor.h \
+    ../../../MDPT63/MPT67/unit.h \
+    ../../../MDPT63/MPT67/warnaction.h \
     MPT67_global.h \
     alarmaction.h \
     emergencyaction.h \
@@ -56,6 +83,10 @@ unix {
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    ../../../MDPT63/MPT67/MPT67.pro.user \
     sharedLib_a6.pro.user \
     sharedLib_a6.pro.user.8ca0792 \
     sharedLib_a6.pro.user.e8d0022
+
+SUBDIRS += \
+    ../../../MDPT63/MPT67/MPT67.pro
