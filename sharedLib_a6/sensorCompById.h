@@ -15,5 +15,5 @@ struct sensorCompById
         }
 };
 
-#endif // SENSORCOMP_H
+#endif // SENSORCOMPBYID_H
 

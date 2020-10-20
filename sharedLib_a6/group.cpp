@@ -4,9 +4,14 @@
 
 #include <iostream>
 
+Group::Group(string_view name):
+    Unit(name)
+{
+}
+
 void Group::triggered()
 {
-    std::cout<<"Group "<<getUnitName()<<" was triggered"<<std::endl;
+    //std::cout<<"Group "<<getUnitName()<<" was triggered"<<std::endl;
     for(std::set<std::shared_ptr<Unit>>::iterator i=children.begin();i!=children.end();i++){
         (*i)->triggered();
     }
@@ -46,18 +51,33 @@ void Group::deleteAddress()
 
 Group & Group::operator ++()
 {
-    for(std::set<std::shared_ptr<Unit>>::iterator i=children.begin();i!=children.end();i++){
-        ++(**i);
-    }
+    activate();
     return (*this);
 }
 
 Group & Group::operator --()
 {
-    for(std::set<std::shared_ptr<Unit>>::iterator i=children.begin();i!=children.end();i++){
-        --(**i);
-    }
+    deactivate();
     return (*this);
+}
+
+void Group::activate()
+{
+    for(std::set<std::shared_ptr<Unit>>::iterator i=children.begin();i!=children.end();i++){
+        (*i)->activate();
+    }
+}
+
+void Group::deactivate()
+{
+    for(std::set<std::shared_ptr<Unit>>::iterator i=children.begin();i!=children.end();i++){
+        (*i)->deactivate();
+    }
+}
+
+std::shared_ptr<Sensor> Group::getSensor()
+{
+    return NULL;
 }
 
 const std::shared_ptr<Unit> Group::findUnit(const std::string_view name) const
@@ -70,4 +90,5 @@ const std::shared_ptr<Unit> Group::findUnit(const std::string_view name) const
         return NULL;
     }
 }
+
 

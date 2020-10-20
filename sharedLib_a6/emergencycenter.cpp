@@ -1,13 +1,12 @@
 #include "emergencycenter.h"
 #include "unit.h"
 #include "group.h"
-#include "single.h"
 #include <iostream>
 
 EmergencyCenter::EmergencyCenter():
     centerName{"defaultCenter"}
 {
-    controlUnit = std::make_unique<Group>(centerName);
+    controlUnit = std::make_unique<Group>("defaultCenter");
 }
 
 EmergencyCenter::EmergencyCenter(std::string_view name):
@@ -18,23 +17,33 @@ EmergencyCenter::EmergencyCenter(std::string_view name):
 
 void EmergencyCenter::setRelation(const std::shared_ptr<Group> & parent,const std::shared_ptr<Unit> & child)
 {
-    parent->addUnit(child);
-    addToSensorSet(child);
+    if(findUnit(parent->getAddress())!=NULL){
+        parent->addUnit(child);
+        addToSensorSet(child);
+    }else{
+        std::cout<<parent->getUnitName()<<" doesn't belong to this center."<<std::endl;
+    }
 }
 
 void EmergencyCenter::resetRelation(const std::shared_ptr<Group> &parent, const std::shared_ptr<Unit> &child)
 {
-    parent->removeUnit(child);
-    deleteFromSensorSet(child);
+    if(findUnit(parent->getAddress())==NULL){
+        std::cout<<parent->getUnitName()<<" doesn't belong to this center."<<std::endl;
+    }else if(parent->findUnit(child->getUnitName())==NULL){
+        std::cout<<child->getUnitName()<<" doesn't belong to "<<parent->getUnitName()<<"."<<std::endl;
+    }else{
+        parent->removeUnit(child);
+        deleteFromSensorSet(child);
+    }
 }
 
-void EmergencyCenter::addChild(const std::shared_ptr<Unit> & newUnit)
+void EmergencyCenter::setRelation(const std::shared_ptr<Unit> & newUnit)
 {
     controlUnit->addUnit(newUnit);
     addToSensorSet(newUnit);
 }
 
-void EmergencyCenter::removeChild(const std::shared_ptr<Unit> & oldUnit)
+void EmergencyCenter::resetRelation(const std::shared_ptr<Unit> & oldUnit)
 {
     controlUnit->removeUnit(oldUnit);
     deleteFromSensorSet(oldUnit);
@@ -81,9 +90,9 @@ void EmergencyCenter::deleteFromSensorSet(const std::shared_ptr<Unit> &oldUnit)
 
 void EmergencyCenter::overviewById() const
 {
-    std::cout<<"An overview of all sensors ordered by sensorId:"<<std::endl;
-    for(std::set<std::shared_ptr<Sensor>>::iterator i=sensorById.begin();i!=sensorById.end();i++){
-        std::cout<<(*i)->getVendor()<<(*i)->getId()<<std::endl;
+    std::cout<<"An overview of all sensors ordered by sensorId"<<std::endl;
+    for(auto i=sensorById.begin();i!=sensorById.end();i++){
+        std::cout<<(*i)->getAllInformation()<<std::endl;
     }
 }
 
@@ -91,19 +100,18 @@ void EmergencyCenter::overviewByVendor() const
 {
     std::cout<<"An overview of all sensors ordered by Vendor:"<<std::endl;
     for(std::set<std::shared_ptr<Sensor>>::iterator i=sensorByVendor.begin();i!=sensorByVendor.end();i++){
-        std::cout<<(*i)->getVendor()<<(*i)->getId()<<std::endl;
+        std::cout<<(*i)->getAllInformation()<<std::endl;
     }
 }
 
 EmergencyCenter &EmergencyCenter::operator ++()
 {
-    ++(*controlUnit);
+    controlUnit->activate();
     return *this;
 }
 
 EmergencyCenter &EmergencyCenter::operator --()
 {
-    --(*controlUnit);
+    controlUnit->deactivate();
     return *this;
 }
-

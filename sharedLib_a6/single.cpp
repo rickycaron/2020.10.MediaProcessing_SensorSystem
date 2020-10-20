@@ -3,12 +3,18 @@
 
 #include <iostream>
 
-void Single::triggered()
+Single::Single(string_view name):
+    Unit(name)
 {
-    std::cout<<"Single "<<getUnitName()<<" was triggered."<<std::endl;
+
 }
 
-std::shared_ptr<Sensor> Single::getSensor() const
+void Single::triggered()
+{
+    sensor->triggered();
+}
+
+std::shared_ptr<Sensor> Single::getSensor()
 {
     return sensor;
 }
@@ -20,13 +26,23 @@ void Single::setSensor(const std::shared_ptr<Sensor> &value)
 
 Single &Single::operator ++()
 {
-    ++(*sensor);
+    activate();
     return *this;
 }
 
 Single &Single::operator --()
 {
-    --(*sensor);
+    deactivate();
     return *this;
+}
+
+void Single::activate()
+{
+    ++(*sensor);
+}
+
+void Single::deactivate()
+{
+    --(*sensor);
 }
 

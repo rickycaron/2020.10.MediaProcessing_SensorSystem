@@ -15,8 +15,8 @@ class EmergencyCenter
 public:
     EmergencyCenter();
     EmergencyCenter(std::string_view name);
-    void addChild(const std::shared_ptr<Unit> & newUnit);
-    void removeChild(const std::shared_ptr<Unit> & oldUnit);
+    void setRelation(const std::shared_ptr<Unit> & newUnit);
+    void resetRelation(const std::shared_ptr<Unit> & oldUnit);
     void setRelation(const std::shared_ptr<Group> & parent,const std::shared_ptr<Unit> & child);
     void resetRelation(const std::shared_ptr<Group> & parent,const std::shared_ptr<Unit> & child);
     const std::shared_ptr<Unit> findUnit(const std::vector<std::string> & address);
@@ -27,9 +27,10 @@ public:
     void overviewByVendor() const;
     EmergencyCenter & operator ++();
     EmergencyCenter & operator --();
+
 private:
-    std::unique_ptr<Group> controlUnit;
     std::string centerName;
+    std::unique_ptr<Group> controlUnit;
     std::set<std::shared_ptr<Sensor>,sensorCompById> sensorById;
     std::set<std::shared_ptr<Sensor>,sensorCompByVendor> sensorByVendor;
 };
