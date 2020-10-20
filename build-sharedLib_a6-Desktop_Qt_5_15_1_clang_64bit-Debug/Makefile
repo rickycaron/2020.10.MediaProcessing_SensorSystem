@@ -59,6 +59,7 @@ SOURCES       = ../sharedLib_a6/alarmaction.cpp \
 		../sharedLib_a6/factory.cpp \
 		../sharedLib_a6/gassensor.cpp \
 		../sharedLib_a6/group.cpp \
+		../sharedLib_a6/main.cpp \
 		../sharedLib_a6/motionsensor.cpp \
 		../sharedLib_a6/mpt67.cpp \
 		../sharedLib_a6/sendaction.cpp \
@@ -76,6 +77,7 @@ OBJECTS       = alarmaction.o \
 		factory.o \
 		gassensor.o \
 		group.o \
+		main.o \
 		motionsensor.o \
 		mpt67.o \
 		sendaction.o \
@@ -293,6 +295,7 @@ DIST          = ../../../MDPT63/MPT67/MPT67.pro.user \
 		../sharedLib_a6/factory.cpp \
 		../sharedLib_a6/gassensor.cpp \
 		../sharedLib_a6/group.cpp \
+		../sharedLib_a6/main.cpp \
 		../sharedLib_a6/motionsensor.cpp \
 		../sharedLib_a6/mpt67.cpp \
 		../sharedLib_a6/sendaction.cpp \
@@ -709,7 +712,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.15.1/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../sharedLib_a6/MPT67_global.h ../sharedLib_a6/alarmaction.h ../sharedLib_a6/emergencyaction.h ../sharedLib_a6/emergencycenter.h ../sharedLib_a6/example.h ../sharedLib_a6/factory.h ../sharedLib_a6/gassensor.h ../sharedLib_a6/group.h ../sharedLib_a6/motionsensor.h ../sharedLib_a6/mpt67.h ../sharedLib_a6/sendaction.h ../sharedLib_a6/sensor.h ../sharedLib_a6/sensorCompById.h ../sharedLib_a6/sensorCompByVendor.h ../sharedLib_a6/sharedLib_a6_global.h ../sharedLib_a6/sharedlib_a6.h ../sharedLib_a6/single.h ../sharedLib_a6/smokesensor.h ../sharedLib_a6/unit.h ../sharedLib_a6/unitComp.h ../sharedLib_a6/vendorafactory.h ../sharedLib_a6/warnaction.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../sharedLib_a6/alarmaction.cpp ../sharedLib_a6/emergencyaction.cpp ../sharedLib_a6/emergencycenter.cpp ../sharedLib_a6/example.cpp ../sharedLib_a6/factory.cpp ../sharedLib_a6/gassensor.cpp ../sharedLib_a6/group.cpp ../sharedLib_a6/motionsensor.cpp ../sharedLib_a6/mpt67.cpp ../sharedLib_a6/sendaction.cpp ../sharedLib_a6/sensor.cpp ../sharedLib_a6/sharedlib_a6.cpp ../sharedLib_a6/single.cpp ../sharedLib_a6/smokesensor.cpp ../sharedLib_a6/unit.cpp ../sharedLib_a6/vendorafactory.cpp ../sharedLib_a6/warnaction.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../sharedLib_a6/alarmaction.cpp ../sharedLib_a6/emergencyaction.cpp ../sharedLib_a6/emergencycenter.cpp ../sharedLib_a6/example.cpp ../sharedLib_a6/factory.cpp ../sharedLib_a6/gassensor.cpp ../sharedLib_a6/group.cpp ../sharedLib_a6/main.cpp ../sharedLib_a6/motionsensor.cpp ../sharedLib_a6/mpt67.cpp ../sharedLib_a6/sendaction.cpp ../sharedLib_a6/sensor.cpp ../sharedLib_a6/sharedlib_a6.cpp ../sharedLib_a6/single.cpp ../sharedLib_a6/smokesensor.cpp ../sharedLib_a6/unit.cpp ../sharedLib_a6/vendorafactory.cpp ../sharedLib_a6/warnaction.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -804,6 +807,17 @@ group.o: ../sharedLib_a6/group.cpp ../sharedLib_a6/group.h \
 		../sharedLib_a6/emergencyaction.h \
 		../sharedLib_a6/sensorCompById.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o group.o ../sharedLib_a6/group.cpp
+
+main.o: ../sharedLib_a6/main.cpp ../sharedLib_a6/unit.h \
+		../sharedLib_a6/group.h \
+		../sharedLib_a6/unitComp.h \
+		../sharedLib_a6/single.h \
+		../sharedLib_a6/emergencycenter.h \
+		../sharedLib_a6/sensorCompById.h \
+		../sharedLib_a6/sensor.h \
+		../sharedLib_a6/emergencyaction.h \
+		../sharedLib_a6/sensorCompByVendor.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../sharedLib_a6/main.cpp
 
 motionsensor.o: ../sharedLib_a6/motionsensor.cpp ../sharedLib_a6/motionsensor.h \
 		../sharedLib_a6/sensor.h \
