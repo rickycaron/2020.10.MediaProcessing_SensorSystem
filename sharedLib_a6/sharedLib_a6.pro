@@ -30,6 +30,7 @@ SOURCES += \
     factory.cpp \
     gassensor.cpp \
     group.cpp \
+    main.cpp \
     motionsensor.cpp \
     mpt67.cpp \
     sendaction.cpp \

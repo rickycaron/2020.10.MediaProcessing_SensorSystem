@@ -18,8 +18,8 @@ public:
     virtual bool isGroup(){return false;};
     virtual std::shared_ptr<Sensor> getSensor() const;
     std::vector<std::string> & getAddress();
-    std::shared_ptr<Unit> & operator ++();
-    std::shared_ptr<Unit> & operator --();
+    Unit & operator ++();
+    Unit & operator --();
 private:
     std::string unitName;
     //std::shared_ptr<Unit> unitParent;

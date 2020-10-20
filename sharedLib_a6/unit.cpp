@@ -12,19 +12,9 @@ void Unit::triggered()
     std::cout<<"Unit "<<unitName<<"was triggered."<<std::endl;
 }
 
-std::shared_ptr<Sensor> Unit::getSensor() const
-{
-
-}
-
 std::vector<std::string> &Unit::getAddress()
 {
     return address;
-}
-
-const std::shared_ptr<Unit> Unit::findUnit(std::string_view name) const
-{
-
 }
 
 void Unit::updateAddress(const std::string &newAddress)

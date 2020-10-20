@@ -44,12 +44,14 @@ void Group::deleteAddress()
     }
 }
 
-std::shared_ptr<Group> & Group::operator ++()
+Group & Group::operator ++()
 {
+    for(std::set<std::shared_ptr<Unit>>::iterator i=children.begin();i!=children.end();i++){
 
+    }
 }
 
-std::shared_ptr<Group> & Group::operator --()
+Group & Group::operator --()
 {
 
 }

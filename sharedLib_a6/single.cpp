@@ -18,3 +18,15 @@ void Single::setSensor(const std::shared_ptr<Sensor> &value)
     sensor = value;
 }
 
+Single &Single::operator ++()
+{
+    ++(*sensor);
+    return *this;
+}
+
+Single &Single::operator --()
+{
+    --(*sensor);
+    return *this;
+}
+
