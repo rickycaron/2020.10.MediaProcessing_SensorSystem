@@ -11,7 +11,7 @@ struct sensorCompByVendor
                 if (x->getVendor()<y->getVendor())
                     return true;
                 else if(x->getVendor()==y->getVendor()){
-                    if(x->getSensorId()<y->getSensorId())
+                    if(x->getId()<y->getId())
                         return true;
                     else
                         return false;

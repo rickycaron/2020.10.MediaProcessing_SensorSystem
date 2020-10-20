@@ -22,16 +22,6 @@ std::vector<std::string> &Unit::getAddress()
     return address;
 }
 
-void Unit::operator ++()
-{
-
-}
-
-void Unit::operator --()
-{
-
-}
-
 const std::shared_ptr<Unit> Unit::findUnit(std::string_view name) const
 {
 
