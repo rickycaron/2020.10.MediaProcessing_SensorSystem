@@ -10,9 +10,9 @@ class Factory
 {
 public:
     Factory();
-    virtual std::unique_ptr<SmokeSensor> createSmokeSensor(SensorType,string);
-    virtual std::unique_ptr<MotionSensor> createMotionSensor(SensorType,string,int activationTime,int deactivationTime,int restrication);
-    virtual std::unique_ptr<GasSensor> createGasSensor(SensorType,string);
+    std::unique_ptr<SmokeSensor> createSmokeSensor(SensorType,string);
+    std::unique_ptr<MotionSensor> createMotionSensor(SensorType,string,tm activationTime,tm deactivationTime,int restrication);
+    std::unique_ptr<GasSensor> createGasSensor(SensorType,string,string);
 };
 
 #endif // FACTORY_H

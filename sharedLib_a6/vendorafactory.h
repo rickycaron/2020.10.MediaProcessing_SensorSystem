@@ -8,9 +8,9 @@ class VendorAFactory : public Factory
 {
 public:
     VendorAFactory();
-    std::unique_ptr<SmokeSensor> createSmokeSensor() override;
-    std::unique_ptr<MotionSensor> createMotionSensor(int activationTime,int deactivationTime,int restrication) override;
-    std::unique_ptr<GasSensor> createGasSensor() override;
+    std::unique_ptr<SmokeSensor> createSmokeSensor(SensorType,string);
+    std::unique_ptr<MotionSensor> createMotionSensor(SensorType,string,tm activationTime,tm deactivationTime,int restrication);
+    std::unique_ptr<GasSensor> createGasSensor(SensorType,string,string);
 };
 //hello!!!!!!!
 #endif // VENDORAFACTORY_H
