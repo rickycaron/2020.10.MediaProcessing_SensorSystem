@@ -1,16 +1,16 @@
 #include "motionsensor.h"
 
-MotionSensor::MotionSensor(SensorType stringtype, string vender):Sensor(stringtype,vender){}
+MotionSensor::MotionSensor(SensorType stringtype, string vendor):Sensor(stringtype,vendor){}
 
-MotionSensor::MotionSensor(SensorType stringtype, string vender,tm activetime,tm deactivetime):Sensor(stringtype,vender),activationTime(activetime),deactivationTime(deactivetime){}
+MotionSensor::MotionSensor(SensorType stringtype, string vendor,tm activetime,tm deactivetime):Sensor(stringtype,vendor),activationTime(activetime),deactivationTime(deactivetime){}
 
-MotionSensor::MotionSensor(SensorType stringtype, string vender,bool permenentactive):Sensor(stringtype,vender),permenateActive(permenentactive){}
+MotionSensor::MotionSensor(SensorType stringtype, string vendor,bool permenentactive):Sensor(stringtype,vendor),permenateActive(permenentactive){}
 
-MotionSensor::MotionSensor(SensorType stringtype, string vender,tm activetime,tm deactivetime,int restrication):Sensor(stringtype,vender),activationTime(activetime),deactivationTime(deactivetime),restrication(restrication){}
+MotionSensor::MotionSensor(SensorType stringtype, string vendor,tm activetime,tm deactivetime,int restrication):Sensor(stringtype,vendor),activationTime(activetime),deactivationTime(deactivetime),restrication(restrication){}
 
 void MotionSensor::printAllInformation()
 {
-    cout<<"Motion sensor to detect of id "<<id<<" ,produce by "<<vender<<" is ";
+    cout<<"Motion sensor to detect of id "<<id<<" ,produce by "<<vendor<<" is ";
     if(permenateActive) cout<<"permenate acitve ,";
     else if (activationTime.tm_hour!= deactivationTime.tm_hour && activationTime.tm_hour!=0)
     {
@@ -28,7 +28,7 @@ void MotionSensor::printAllInformation()
 string MotionSensor::getAllInformation()
 {
     std::stringstream sensorInformation;
-    sensorInformation <<"Motion sensor to detect of id "<<id<<" ,produce by "<<vender<<" is ";
+    sensorInformation <<"Motion sensor to detect of id "<<id<<" ,produce by "<<vendor<<" is ";
     if(permenateActive) sensorInformation<<"permenate acitve ,";
         else if (activationTime.tm_hour!= deactivationTime.tm_hour && activationTime.tm_hour!=0)
         {

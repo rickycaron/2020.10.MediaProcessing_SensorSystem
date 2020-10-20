@@ -1,12 +1,12 @@
 #include "gassensor.h"
 
 
-GasSensor::GasSensor(SensorType stringtype, string vender, string gastype):Sensor(stringtype,vender),gasType(gastype)
+GasSensor::GasSensor(SensorType stringtype, string vendor, string gastype):Sensor(stringtype,vendor),gasType(gastype)
 {}
 
 void GasSensor::printAllInformation()
 {
-    cout<<"Gas sensor to detect "<<gasType<<" ,of id "<<id<<" ,produce by "<<vender<<" is ";
+    cout<<"Gas sensor to detect "<<gasType<<" ,of id "<<id<<" ,produce by "<<vendor<<" is ";
     if(activationState)
         cout<<"active now! ";
     else
@@ -17,7 +17,7 @@ void GasSensor::printAllInformation()
 string GasSensor::getAllInformation()
 {
     std::stringstream sensorInformation;
-    sensorInformation <<"Gas sensor to detect "<<gasType<<" ,of id "<<id<<" ,produce by "<<vender<<" is ";
+    sensorInformation <<"Gas sensor to detect "<<gasType<<" ,of id "<<id<<" ,produce by "<<vendor<<" is ";
     if(activationState)
        sensorInformation<<"active now! ";
     else

@@ -18,7 +18,7 @@ protected:
     static int sensorUniqCount;
     int id = 0;//automatically generated
     SensorType sensorType=ST_Undefined;// initialized when created
-    string vender;
+    string vendor;
     bool activationState=false;
     //EmergencyAction * emergencyActions = nullptr;
     vector < shared_ptr<EmergencyAction> > emergencyActions;

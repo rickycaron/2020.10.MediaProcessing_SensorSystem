@@ -31,10 +31,10 @@ int Sensor::getId() const
 
 string Sensor::getVender() const
 {
-    return vender;
+    return vendor;
 }
 
-Sensor::Sensor(SensorType sensortype, string vender): sensorType(sensortype),vender(vender)
+Sensor::Sensor(SensorType sensortype, string vender): sensorType(sensortype),vendor(vender)
 {
     Sensor::sensorCount++;
     Sensor::sensorUniqCount++;
