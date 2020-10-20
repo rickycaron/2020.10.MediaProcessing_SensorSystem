@@ -97,13 +97,13 @@ void EmergencyCenter::overviewByVendor() const
 
 EmergencyCenter &EmergencyCenter::operator ++()
 {
-    ++controlUnit;
+    ++(*controlUnit);
     return *this;
 }
 
 EmergencyCenter &EmergencyCenter::operator --()
 {
-    --controlUnit;
+    --(*controlUnit);
     return *this;
 }
 

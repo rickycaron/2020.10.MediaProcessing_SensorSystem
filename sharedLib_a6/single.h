@@ -12,8 +12,8 @@ public:
     bool isGroup() override{return false;};
     std::shared_ptr<Sensor> getSensor() const override;
     void setSensor(const std::shared_ptr<Sensor> &value);
-    Single & operator ++() override;
-    Single & operator --() override;
+    std::shared_ptr<Single> & operator ++();
+    std::shared_ptr<Single> & operator --();
 private:
     std::shared_ptr<Sensor> sensor;
 };

@@ -44,12 +44,12 @@ void Group::deleteAddress()
     }
 }
 
-void Group::operator ++()
+std::shared_ptr<Group> & Group::operator ++()
 {
 
 }
 
-void Group::operator --()
+std::shared_ptr<Group> & Group::operator --()
 {
 
 }

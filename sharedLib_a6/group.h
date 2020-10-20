@@ -18,8 +18,8 @@ public:
     const std::set<std::shared_ptr<Unit>, UnitComp> & getChildren() const {return children;};
     void updateAddress(const std::string & newAddress) override;
     void deleteAddress() override;
-    Group & operator ++() override;
-    Group & operator --() override;
+    std::shared_ptr<Group> & operator ++();
+    std::shared_ptr<Group> & operator --();
 private:
     std::set<std::shared_ptr<Unit>,UnitComp> children;
 };
