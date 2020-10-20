@@ -16,7 +16,7 @@ CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefau
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 DEFINES       = -DSHAREDLIB_A6_LIBRARY -DQT_QML_DEBUG -DQT_CORE_LIB
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.13 -Wall -Wextra -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.13 -Wall -Wextra -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.13 -Wall -Wextra -fPIC $(DEFINES)
 INCPATH       = -I../sharedLib_a6 -I. -I../../../../Qt/5.15.1/clang_64/lib/QtCore.framework/Headers -I. -I../../../../Qt/5.15.1/clang_64/mkspecs/macx-clang -F/Users/user/Qt/5.15.1/clang_64/lib
 QMAKE         = /Users/user/Qt/5.15.1/clang_64/bin/qmake
 DEL_FILE      = rm -f
@@ -52,20 +52,7 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../../../MDPT63/MPT67/alarmaction.cpp \
-		../../../MDPT63/MPT67/emergencyaction.cpp \
-		../../../MDPT63/MPT67/emergencycenter.cpp \
-		../../../MDPT63/MPT67/gassensor.cpp \
-		../../../MDPT63/MPT67/group.cpp \
-		../../../MDPT63/MPT67/motionsensor.cpp \
-		../../../MDPT63/MPT67/mpt67.cpp \
-		../../../MDPT63/MPT67/sendaction.cpp \
-		../../../MDPT63/MPT67/sensor.cpp \
-		../../../MDPT63/MPT67/single.cpp \
-		../../../MDPT63/MPT67/smokesensor.cpp \
-		../../../MDPT63/MPT67/unit.cpp \
-		../../../MDPT63/MPT67/warnaction.cpp \
-		../sharedLib_a6/alarmaction.cpp \
+SOURCES       = ../sharedLib_a6/alarmaction.cpp \
 		../sharedLib_a6/emergencyaction.cpp \
 		../sharedLib_a6/emergencycenter.cpp \
 		../sharedLib_a6/example.cpp \
@@ -73,7 +60,7 @@ SOURCES       = ../../../MDPT63/MPT67/alarmaction.cpp \
 		../sharedLib_a6/gassensor.cpp \
 		../sharedLib_a6/group.cpp \
 		../sharedLib_a6/motionsensor.cpp \
-		../sharedLib_a6/mpt67.cpp \
+		mpt67.cpp \
 		../sharedLib_a6/sendaction.cpp \
 		../sharedLib_a6/sensor.cpp \
 		../sharedLib_a6/sharedlib_a6.cpp \
@@ -83,19 +70,6 @@ SOURCES       = ../../../MDPT63/MPT67/alarmaction.cpp \
 		../sharedLib_a6/vendorafactory.cpp \
 		../sharedLib_a6/warnaction.cpp 
 OBJECTS       = alarmaction.o \
-		emergencyaction.o \
-		emergencycenter.o \
-		gassensor.o \
-		group.o \
-		motionsensor.o \
-		mpt67.o \
-		sendaction.o \
-		sensor.o \
-		single.o \
-		smokesensor.o \
-		unit.o \
-		warnaction.o \
-		alarmaction.o \
 		emergencyaction.o \
 		emergencycenter.o \
 		example.o \
@@ -291,21 +265,7 @@ DIST          = ../../../MDPT63/MPT67/MPT67.pro.user \
 		../../../../Qt/5.15.1/clang_64/mkspecs/features/exceptions.prf \
 		../../../../Qt/5.15.1/clang_64/mkspecs/features/yacc.prf \
 		../../../../Qt/5.15.1/clang_64/mkspecs/features/lex.prf \
-		../sharedLib_a6/sharedLib_a6.pro ../../../MDPT63/MPT67/MPT67_global.h \
-		../../../MDPT63/MPT67/alarmaction.h \
-		../../../MDPT63/MPT67/emergencyaction.h \
-		../../../MDPT63/MPT67/emergencycenter.h \
-		../../../MDPT63/MPT67/gassensor.h \
-		../../../MDPT63/MPT67/group.h \
-		../../../MDPT63/MPT67/motionsensor.h \
-		../../../MDPT63/MPT67/mpt67.h \
-		../../../MDPT63/MPT67/sendaction.h \
-		../../../MDPT63/MPT67/sensor.h \
-		../../../MDPT63/MPT67/single.h \
-		../../../MDPT63/MPT67/smokesensor.h \
-		../../../MDPT63/MPT67/unit.h \
-		../../../MDPT63/MPT67/warnaction.h \
-		../sharedLib_a6/MPT67_global.h \
+		../sharedLib_a6/sharedLib_a6.pro ../sharedLib_a6/MPT67_global.h \
 		../sharedLib_a6/alarmaction.h \
 		../sharedLib_a6/emergencyaction.h \
 		../sharedLib_a6/emergencycenter.h \
@@ -314,29 +274,19 @@ DIST          = ../../../MDPT63/MPT67/MPT67.pro.user \
 		../sharedLib_a6/gassensor.h \
 		../sharedLib_a6/group.h \
 		../sharedLib_a6/motionsensor.h \
-		../sharedLib_a6/mpt67.h \
+		mpt67.h \
 		../sharedLib_a6/sendaction.h \
 		../sharedLib_a6/sensor.h \
+		../sharedLib_a6/sensorCompById.h \
+		../sharedLib_a6/sensorCompByVendor.h \
 		../sharedLib_a6/sharedLib_a6_global.h \
 		../sharedLib_a6/sharedlib_a6.h \
 		../sharedLib_a6/single.h \
 		../sharedLib_a6/smokesensor.h \
 		../sharedLib_a6/unit.h \
+		../sharedLib_a6/unitComp.h \
 		../sharedLib_a6/vendorafactory.h \
-		../sharedLib_a6/warnaction.h ../../../MDPT63/MPT67/alarmaction.cpp \
-		../../../MDPT63/MPT67/emergencyaction.cpp \
-		../../../MDPT63/MPT67/emergencycenter.cpp \
-		../../../MDPT63/MPT67/gassensor.cpp \
-		../../../MDPT63/MPT67/group.cpp \
-		../../../MDPT63/MPT67/motionsensor.cpp \
-		../../../MDPT63/MPT67/mpt67.cpp \
-		../../../MDPT63/MPT67/sendaction.cpp \
-		../../../MDPT63/MPT67/sensor.cpp \
-		../../../MDPT63/MPT67/single.cpp \
-		../../../MDPT63/MPT67/smokesensor.cpp \
-		../../../MDPT63/MPT67/unit.cpp \
-		../../../MDPT63/MPT67/warnaction.cpp \
-		../sharedLib_a6/alarmaction.cpp \
+		../sharedLib_a6/warnaction.h ../sharedLib_a6/alarmaction.cpp \
 		../sharedLib_a6/emergencyaction.cpp \
 		../sharedLib_a6/emergencycenter.cpp \
 		../sharedLib_a6/example.cpp \
@@ -344,7 +294,7 @@ DIST          = ../../../MDPT63/MPT67/MPT67.pro.user \
 		../sharedLib_a6/gassensor.cpp \
 		../sharedLib_a6/group.cpp \
 		../sharedLib_a6/motionsensor.cpp \
-		../sharedLib_a6/mpt67.cpp \
+		mpt67.cpp \
 		../sharedLib_a6/sendaction.cpp \
 		../sharedLib_a6/sensor.cpp \
 		../sharedLib_a6/sharedlib_a6.cpp \
@@ -758,8 +708,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.15.1/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../MDPT63/MPT67/MPT67_global.h ../../../MDPT63/MPT67/alarmaction.h ../../../MDPT63/MPT67/emergencyaction.h ../../../MDPT63/MPT67/emergencycenter.h ../../../MDPT63/MPT67/gassensor.h ../../../MDPT63/MPT67/group.h ../../../MDPT63/MPT67/motionsensor.h ../../../MDPT63/MPT67/mpt67.h ../../../MDPT63/MPT67/sendaction.h ../../../MDPT63/MPT67/sensor.h ../../../MDPT63/MPT67/single.h ../../../MDPT63/MPT67/smokesensor.h ../../../MDPT63/MPT67/unit.h ../../../MDPT63/MPT67/warnaction.h ../sharedLib_a6/MPT67_global.h ../sharedLib_a6/alarmaction.h ../sharedLib_a6/emergencyaction.h ../sharedLib_a6/emergencycenter.h ../sharedLib_a6/example.h ../sharedLib_a6/factory.h ../sharedLib_a6/gassensor.h ../sharedLib_a6/group.h ../sharedLib_a6/motionsensor.h ../sharedLib_a6/mpt67.h ../sharedLib_a6/sendaction.h ../sharedLib_a6/sensor.h ../sharedLib_a6/sharedLib_a6_global.h ../sharedLib_a6/sharedlib_a6.h ../sharedLib_a6/single.h ../sharedLib_a6/smokesensor.h ../sharedLib_a6/unit.h ../sharedLib_a6/vendorafactory.h ../sharedLib_a6/warnaction.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../MDPT63/MPT67/alarmaction.cpp ../../../MDPT63/MPT67/emergencyaction.cpp ../../../MDPT63/MPT67/emergencycenter.cpp ../../../MDPT63/MPT67/gassensor.cpp ../../../MDPT63/MPT67/group.cpp ../../../MDPT63/MPT67/motionsensor.cpp ../../../MDPT63/MPT67/mpt67.cpp ../../../MDPT63/MPT67/sendaction.cpp ../../../MDPT63/MPT67/sensor.cpp ../../../MDPT63/MPT67/single.cpp ../../../MDPT63/MPT67/smokesensor.cpp ../../../MDPT63/MPT67/unit.cpp ../../../MDPT63/MPT67/warnaction.cpp ../sharedLib_a6/alarmaction.cpp ../sharedLib_a6/emergencyaction.cpp ../sharedLib_a6/emergencycenter.cpp ../sharedLib_a6/example.cpp ../sharedLib_a6/factory.cpp ../sharedLib_a6/gassensor.cpp ../sharedLib_a6/group.cpp ../sharedLib_a6/motionsensor.cpp ../sharedLib_a6/mpt67.cpp ../sharedLib_a6/sendaction.cpp ../sharedLib_a6/sensor.cpp ../sharedLib_a6/sharedlib_a6.cpp ../sharedLib_a6/single.cpp ../sharedLib_a6/smokesensor.cpp ../sharedLib_a6/unit.cpp ../sharedLib_a6/vendorafactory.cpp ../sharedLib_a6/warnaction.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../sharedLib_a6/MPT67_global.h ../sharedLib_a6/alarmaction.h ../sharedLib_a6/emergencyaction.h ../sharedLib_a6/emergencycenter.h ../sharedLib_a6/example.h ../sharedLib_a6/factory.h ../sharedLib_a6/gassensor.h ../sharedLib_a6/group.h ../sharedLib_a6/motionsensor.h mpt67.h ../sharedLib_a6/sendaction.h ../sharedLib_a6/sensor.h ../sharedLib_a6/sensorCompById.h ../sharedLib_a6/sensorCompByVendor.h ../sharedLib_a6/sharedLib_a6_global.h ../sharedLib_a6/sharedlib_a6.h ../sharedLib_a6/single.h ../sharedLib_a6/smokesensor.h ../sharedLib_a6/unit.h ../sharedLib_a6/unitComp.h ../sharedLib_a6/vendorafactory.h ../sharedLib_a6/warnaction.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../sharedLib_a6/alarmaction.cpp ../sharedLib_a6/emergencyaction.cpp ../sharedLib_a6/emergencycenter.cpp ../sharedLib_a6/example.cpp ../sharedLib_a6/factory.cpp ../sharedLib_a6/gassensor.cpp ../sharedLib_a6/group.cpp ../sharedLib_a6/motionsensor.cpp mpt67.cpp ../sharedLib_a6/sendaction.cpp ../sharedLib_a6/sensor.cpp ../sharedLib_a6/sharedlib_a6.cpp ../sharedLib_a6/single.cpp ../sharedLib_a6/smokesensor.cpp ../sharedLib_a6/unit.cpp ../sharedLib_a6/vendorafactory.cpp ../sharedLib_a6/warnaction.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -793,7 +743,7 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: ../../../../Qt/5.15.1/clang_64/mkspecs/features/data/dummy.cpp
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.13 -Wall -Wextra -dM -E -o moc_predefs.h ../../../../Qt/5.15.1/clang_64/mkspecs/features/data/dummy.cpp
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.13 -Wall -Wextra -dM -E -o moc_predefs.h ../../../../Qt/5.15.1/clang_64/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all:
 compiler_moc_header_clean:
@@ -813,62 +763,6 @@ compiler_clean: compiler_moc_predefs_clean
 
 ####### Compile
 
-alarmaction.o: ../../../MDPT63/MPT67/alarmaction.cpp ../../../MDPT63/MPT67/alarmaction.h \
-		../../../MDPT63/MPT67/emergencyaction.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o alarmaction.o ../../../MDPT63/MPT67/alarmaction.cpp
-
-emergencyaction.o: ../../../MDPT63/MPT67/emergencyaction.cpp ../../../MDPT63/MPT67/emergencyaction.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o emergencyaction.o ../../../MDPT63/MPT67/emergencyaction.cpp
-
-emergencycenter.o: ../../../MDPT63/MPT67/emergencycenter.cpp ../../../MDPT63/MPT67/emergencycenter.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o emergencycenter.o ../../../MDPT63/MPT67/emergencycenter.cpp
-
-gassensor.o: ../../../MDPT63/MPT67/gassensor.cpp ../../../MDPT63/MPT67/gassensor.h \
-		../../../MDPT63/MPT67/sensor.h \
-		../../../MDPT63/MPT67/emergencyaction.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gassensor.o ../../../MDPT63/MPT67/gassensor.cpp
-
-group.o: ../../../MDPT63/MPT67/group.cpp ../../../MDPT63/MPT67/unit.h \
-		../../../MDPT63/MPT67/group.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o group.o ../../../MDPT63/MPT67/group.cpp
-
-motionsensor.o: ../../../MDPT63/MPT67/motionsensor.cpp ../../../MDPT63/MPT67/motionsensor.h \
-		../../../MDPT63/MPT67/sensor.h \
-		../../../MDPT63/MPT67/emergencyaction.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o motionsensor.o ../../../MDPT63/MPT67/motionsensor.cpp
-
-mpt67.o: ../../../MDPT63/MPT67/mpt67.cpp ../../../MDPT63/MPT67/mpt67.h \
-		../../../MDPT63/MPT67/MPT67_global.h \
-		../../../../Qt/5.15.1/clang_64/lib/QtCore.framework/Headers/QtDebug \
-		../../../../Qt/5.15.1/clang_64/lib/QtCore.framework/Headers/qdebug.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mpt67.o ../../../MDPT63/MPT67/mpt67.cpp
-
-sendaction.o: ../../../MDPT63/MPT67/sendaction.cpp ../../../MDPT63/MPT67/sendaction.h \
-		../../../MDPT63/MPT67/emergencyaction.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sendaction.o ../../../MDPT63/MPT67/sendaction.cpp
-
-sensor.o: ../../../MDPT63/MPT67/sensor.cpp ../../../MDPT63/MPT67/sensor.h \
-		../../../MDPT63/MPT67/emergencyaction.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sensor.o ../../../MDPT63/MPT67/sensor.cpp
-
-single.o: ../../../MDPT63/MPT67/single.cpp ../../../MDPT63/MPT67/single.h \
-		../../../MDPT63/MPT67/unit.h \
-		../../../MDPT63/MPT67/sensor.h \
-		../../../MDPT63/MPT67/emergencyaction.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o single.o ../../../MDPT63/MPT67/single.cpp
-
-smokesensor.o: ../../../MDPT63/MPT67/smokesensor.cpp ../../../MDPT63/MPT67/smokesensor.h \
-		../../../MDPT63/MPT67/sensor.h \
-		../../../MDPT63/MPT67/emergencyaction.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o smokesensor.o ../../../MDPT63/MPT67/smokesensor.cpp
-
-unit.o: ../../../MDPT63/MPT67/unit.cpp ../../../MDPT63/MPT67/unit.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o unit.o ../../../MDPT63/MPT67/unit.cpp
-
-warnaction.o: ../../../MDPT63/MPT67/warnaction.cpp ../../../MDPT63/MPT67/warnaction.h \
-		../../../MDPT63/MPT67/emergencyaction.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o warnaction.o ../../../MDPT63/MPT67/warnaction.cpp
-
 alarmaction.o: ../sharedLib_a6/alarmaction.cpp ../sharedLib_a6/alarmaction.h \
 		../sharedLib_a6/emergencyaction.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o alarmaction.o ../sharedLib_a6/alarmaction.cpp
@@ -876,7 +770,15 @@ alarmaction.o: ../sharedLib_a6/alarmaction.cpp ../sharedLib_a6/alarmaction.h \
 emergencyaction.o: ../sharedLib_a6/emergencyaction.cpp ../sharedLib_a6/emergencyaction.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o emergencyaction.o ../sharedLib_a6/emergencyaction.cpp
 
-emergencycenter.o: ../sharedLib_a6/emergencycenter.cpp ../sharedLib_a6/emergencycenter.h
+emergencycenter.o: ../sharedLib_a6/emergencycenter.cpp ../sharedLib_a6/emergencycenter.h \
+		../sharedLib_a6/sensorCompById.h \
+		../sharedLib_a6/sensor.h \
+		../sharedLib_a6/emergencyaction.h \
+		../sharedLib_a6/sensorCompByVendor.h \
+		../sharedLib_a6/unit.h \
+		../sharedLib_a6/group.h \
+		../sharedLib_a6/unitComp.h \
+		../sharedLib_a6/single.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o emergencycenter.o ../sharedLib_a6/emergencycenter.cpp
 
 example.o: ../sharedLib_a6/example.cpp ../sharedLib_a6/example.h
@@ -895,8 +797,12 @@ gassensor.o: ../sharedLib_a6/gassensor.cpp ../sharedLib_a6/gassensor.h \
 		../sharedLib_a6/emergencyaction.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gassensor.o ../sharedLib_a6/gassensor.cpp
 
-group.o: ../sharedLib_a6/group.cpp ../sharedLib_a6/unit.h \
-		../sharedLib_a6/group.h
+group.o: ../sharedLib_a6/group.cpp ../sharedLib_a6/group.h \
+		../sharedLib_a6/unit.h \
+		../sharedLib_a6/unitComp.h \
+		../sharedLib_a6/sensor.h \
+		../sharedLib_a6/emergencyaction.h \
+		../sharedLib_a6/sensorCompById.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o group.o ../sharedLib_a6/group.cpp
 
 motionsensor.o: ../sharedLib_a6/motionsensor.cpp ../sharedLib_a6/motionsensor.h \
@@ -904,11 +810,8 @@ motionsensor.o: ../sharedLib_a6/motionsensor.cpp ../sharedLib_a6/motionsensor.h 
 		../sharedLib_a6/emergencyaction.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o motionsensor.o ../sharedLib_a6/motionsensor.cpp
 
-mpt67.o: ../sharedLib_a6/mpt67.cpp ../sharedLib_a6/mpt67.h \
-		../sharedLib_a6/MPT67_global.h \
-		../../../../Qt/5.15.1/clang_64/lib/QtCore.framework/Headers/QtDebug \
-		../../../../Qt/5.15.1/clang_64/lib/QtCore.framework/Headers/qdebug.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mpt67.o ../sharedLib_a6/mpt67.cpp
+mpt67.o: mpt67.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mpt67.o mpt67.cpp
 
 sendaction.o: ../sharedLib_a6/sendaction.cpp ../sharedLib_a6/sendaction.h \
 		../sharedLib_a6/emergencyaction.h
