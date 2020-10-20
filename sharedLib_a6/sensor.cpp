@@ -29,7 +29,7 @@ int Sensor::getId() const
     return id;
 }
 
-string Sensor::getVender() const
+string Sensor::getVendor() const
 {
     return vendor;
 }

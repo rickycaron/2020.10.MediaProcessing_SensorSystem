@@ -46,7 +46,7 @@ public:
     static int getSensorUniqCount();
     static void setSensorUniqCount(int value);
     int getId() const;
-    string getVender() const;
+    string getVendor() const;
 };
 
 ostream&  operator<<(ostream &os, Sensor &sensor);
