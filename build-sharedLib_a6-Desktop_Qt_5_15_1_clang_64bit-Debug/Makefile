@@ -60,7 +60,7 @@ SOURCES       = ../sharedLib_a6/alarmaction.cpp \
 		../sharedLib_a6/gassensor.cpp \
 		../sharedLib_a6/group.cpp \
 		../sharedLib_a6/motionsensor.cpp \
-		mpt67.cpp \
+		../sharedLib_a6/mpt67.cpp \
 		../sharedLib_a6/sendaction.cpp \
 		../sharedLib_a6/sensor.cpp \
 		../sharedLib_a6/sharedlib_a6.cpp \
@@ -274,7 +274,7 @@ DIST          = ../../../MDPT63/MPT67/MPT67.pro.user \
 		../sharedLib_a6/gassensor.h \
 		../sharedLib_a6/group.h \
 		../sharedLib_a6/motionsensor.h \
-		mpt67.h \
+		../sharedLib_a6/mpt67.h \
 		../sharedLib_a6/sendaction.h \
 		../sharedLib_a6/sensor.h \
 		../sharedLib_a6/sensorCompById.h \
@@ -294,7 +294,7 @@ DIST          = ../../../MDPT63/MPT67/MPT67.pro.user \
 		../sharedLib_a6/gassensor.cpp \
 		../sharedLib_a6/group.cpp \
 		../sharedLib_a6/motionsensor.cpp \
-		mpt67.cpp \
+		../sharedLib_a6/mpt67.cpp \
 		../sharedLib_a6/sendaction.cpp \
 		../sharedLib_a6/sensor.cpp \
 		../sharedLib_a6/sharedlib_a6.cpp \
@@ -708,8 +708,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.15.1/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../sharedLib_a6/MPT67_global.h ../sharedLib_a6/alarmaction.h ../sharedLib_a6/emergencyaction.h ../sharedLib_a6/emergencycenter.h ../sharedLib_a6/example.h ../sharedLib_a6/factory.h ../sharedLib_a6/gassensor.h ../sharedLib_a6/group.h ../sharedLib_a6/motionsensor.h mpt67.h ../sharedLib_a6/sendaction.h ../sharedLib_a6/sensor.h ../sharedLib_a6/sensorCompById.h ../sharedLib_a6/sensorCompByVendor.h ../sharedLib_a6/sharedLib_a6_global.h ../sharedLib_a6/sharedlib_a6.h ../sharedLib_a6/single.h ../sharedLib_a6/smokesensor.h ../sharedLib_a6/unit.h ../sharedLib_a6/unitComp.h ../sharedLib_a6/vendorafactory.h ../sharedLib_a6/warnaction.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../sharedLib_a6/alarmaction.cpp ../sharedLib_a6/emergencyaction.cpp ../sharedLib_a6/emergencycenter.cpp ../sharedLib_a6/example.cpp ../sharedLib_a6/factory.cpp ../sharedLib_a6/gassensor.cpp ../sharedLib_a6/group.cpp ../sharedLib_a6/motionsensor.cpp mpt67.cpp ../sharedLib_a6/sendaction.cpp ../sharedLib_a6/sensor.cpp ../sharedLib_a6/sharedlib_a6.cpp ../sharedLib_a6/single.cpp ../sharedLib_a6/smokesensor.cpp ../sharedLib_a6/unit.cpp ../sharedLib_a6/vendorafactory.cpp ../sharedLib_a6/warnaction.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../sharedLib_a6/MPT67_global.h ../sharedLib_a6/alarmaction.h ../sharedLib_a6/emergencyaction.h ../sharedLib_a6/emergencycenter.h ../sharedLib_a6/example.h ../sharedLib_a6/factory.h ../sharedLib_a6/gassensor.h ../sharedLib_a6/group.h ../sharedLib_a6/motionsensor.h ../sharedLib_a6/mpt67.h ../sharedLib_a6/sendaction.h ../sharedLib_a6/sensor.h ../sharedLib_a6/sensorCompById.h ../sharedLib_a6/sensorCompByVendor.h ../sharedLib_a6/sharedLib_a6_global.h ../sharedLib_a6/sharedlib_a6.h ../sharedLib_a6/single.h ../sharedLib_a6/smokesensor.h ../sharedLib_a6/unit.h ../sharedLib_a6/unitComp.h ../sharedLib_a6/vendorafactory.h ../sharedLib_a6/warnaction.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../sharedLib_a6/alarmaction.cpp ../sharedLib_a6/emergencyaction.cpp ../sharedLib_a6/emergencycenter.cpp ../sharedLib_a6/example.cpp ../sharedLib_a6/factory.cpp ../sharedLib_a6/gassensor.cpp ../sharedLib_a6/group.cpp ../sharedLib_a6/motionsensor.cpp ../sharedLib_a6/mpt67.cpp ../sharedLib_a6/sendaction.cpp ../sharedLib_a6/sensor.cpp ../sharedLib_a6/sharedlib_a6.cpp ../sharedLib_a6/single.cpp ../sharedLib_a6/smokesensor.cpp ../sharedLib_a6/unit.cpp ../sharedLib_a6/vendorafactory.cpp ../sharedLib_a6/warnaction.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -810,8 +810,11 @@ motionsensor.o: ../sharedLib_a6/motionsensor.cpp ../sharedLib_a6/motionsensor.h 
 		../sharedLib_a6/emergencyaction.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o motionsensor.o ../sharedLib_a6/motionsensor.cpp
 
-mpt67.o: mpt67.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mpt67.o mpt67.cpp
+mpt67.o: ../sharedLib_a6/mpt67.cpp ../sharedLib_a6/mpt67.h \
+		../sharedLib_a6/MPT67_global.h \
+		../../../../Qt/5.15.1/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		../../../../Qt/5.15.1/clang_64/lib/QtCore.framework/Headers/qdebug.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mpt67.o ../sharedLib_a6/mpt67.cpp
 
 sendaction.o: ../sharedLib_a6/sendaction.cpp ../sharedLib_a6/sendaction.h \
 		../sharedLib_a6/emergencyaction.h
