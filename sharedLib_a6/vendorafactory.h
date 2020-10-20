@@ -6,11 +6,13 @@
 
 class VendorAFactory : public Factory
 {
+    enum SensorType{ST_Undefined,ST_SmokeSensor,ST_MotionSensor,ST_GasSensor};
+
 public:
     VendorAFactory();
-    std::unique_ptr<SmokeSensor> createSmokeSensor(SensorType,string);
-    std::unique_ptr<MotionSensor> createMotionSensor(SensorType,string,tm activationTime,tm deactivationTime,int restrication);
-    std::unique_ptr<GasSensor> createGasSensor(SensorType,string,string);
+    std::unique_ptr<SmokeSensor> createSmokeSensor() ;
+    std::unique_ptr<MotionSensor> createMotionSensor(tm activationTime,tm deactivationTime,int restrication);
+    std::unique_ptr<GasSensor> createGasSensor(string) ;
 };
 //hello!!!!!!!
 #endif // VENDORAFACTORY_H

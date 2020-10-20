@@ -10,19 +10,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-#    ../../../MDPT63/MPT67/alarmaction.cpp \
-#    ../../../MDPT63/MPT67/emergencyaction.cpp \
-#    ../../../MDPT63/MPT67/emergencycenter.cpp \
-#    ../../../MDPT63/MPT67/gassensor.cpp \
-#    ../../../MDPT63/MPT67/group.cpp \
-#    ../../../MDPT63/MPT67/motionsensor.cpp \
-#    ../../../MDPT63/MPT67/mpt67.cpp \
-#    ../../../MDPT63/MPT67/sendaction.cpp \
-#    ../../../MDPT63/MPT67/sensor.cpp \
-#    ../../../MDPT63/MPT67/single.cpp \
-#    ../../../MDPT63/MPT67/smokesensor.cpp \
-#    ../../../MDPT63/MPT67/unit.cpp \
-#    ../../../MDPT63/MPT67/warnaction.cpp \
+
     alarmaction.cpp \
     emergencyaction.cpp \
     emergencycenter.cpp \
@@ -39,24 +27,12 @@ SOURCES += \
     single.cpp \
     smokesensor.cpp \
     unit.cpp \
-    vendorafactory.cpp \
-    warnaction.cpp
+    warnaction.cpp\
+    vendorafactory.cpp
+
 
 HEADERS += \
-#    ../../../MDPT63/MPT67/MPT67_global.h \
-#    ../../../MDPT63/MPT67/alarmaction.h \
-#    ../../../MDPT63/MPT67/emergencyaction.h \
-#    ../../../MDPT63/MPT67/emergencycenter.h \
-#    ../../../MDPT63/MPT67/gassensor.h \
-#    ../../../MDPT63/MPT67/group.h \
-#    ../../../MDPT63/MPT67/motionsensor.h \
-#    ../../../MDPT63/MPT67/mpt67.h \
-#    ../../../MDPT63/MPT67/sendaction.h \
-#    ../../../MDPT63/MPT67/sensor.h \
-#    ../../../MDPT63/MPT67/single.h \
-#    ../../../MDPT63/MPT67/smokesensor.h \
-#    ../../../MDPT63/MPT67/unit.h \
-#    ../../../MDPT63/MPT67/warnaction.h \
+
     MPT67_global.h \
     alarmaction.h \
     emergencyaction.h \
@@ -82,7 +58,8 @@ HEADERS += \
 
 # Default rules for deployment.
 unix {
-    #target.path = /home/yuqi/mp20-team-a6
+    target.path = /home/shuai/Desktop/lib/mp20-team-a6/sharedLib_a6
+
 }
 !isEmpty(target.path): INSTALLS += target
 
