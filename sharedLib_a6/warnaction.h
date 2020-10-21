@@ -5,7 +5,7 @@
 class WarnAction: public EmergencyAction
 {
 private:
-    string warner;
+    string warner;// warn whom
 public:
     WarnAction(string);
     void triggered();

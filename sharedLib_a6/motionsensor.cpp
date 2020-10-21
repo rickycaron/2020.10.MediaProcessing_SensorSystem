@@ -1,6 +1,8 @@
 #include "motionsensor.h"
 
-MotionSensor::MotionSensor(SensorType stringtype, string vendor):Sensor(stringtype,vendor){}
+MotionSensor::MotionSensor(SensorType stringtype, string vendor):Sensor(stringtype,vendor){
+    permenateActive=true;
+}
 
 MotionSensor::MotionSensor(SensorType stringtype, string vendor,tm activetime,tm deactivetime):Sensor(stringtype,vendor),activationTime(activetime),deactivationTime(deactivetime){}
 

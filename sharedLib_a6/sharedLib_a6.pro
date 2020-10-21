@@ -25,8 +25,7 @@ SOURCES += \
     single.cpp \
     smokesensor.cpp \
     unit.cpp \
-    warnaction.cpp\
-    vendorafactory.cpp
+    warnaction.cpp
 
 
 HEADERS += \
@@ -50,7 +49,6 @@ HEADERS += \
     smokesensor.h \
     unit.h \
     unitComp.h \
-    vendorafactory.h \
     warnaction.h
 
 # Default rules for deployment.
