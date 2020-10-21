@@ -10,7 +10,6 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-
     alarmaction.cpp \
     emergencyaction.cpp \
     emergencycenter.cpp \
@@ -18,7 +17,6 @@ SOURCES += \
     factory.cpp \
     gassensor.cpp \
     group.cpp \
-    main.cpp \
     motionsensor.cpp \
     mpt67.cpp \
     sendaction.cpp \
@@ -32,7 +30,6 @@ SOURCES += \
 
 
 HEADERS += \
-
     MPT67_global.h \
     alarmaction.h \
     emergencyaction.h \
@@ -58,7 +55,8 @@ HEADERS += \
 
 # Default rules for deployment.
 unix {
-    target.path = /home/shuai/Desktop/lib/mp20-team-a6/sharedLib_a6
+    #target.path = /home/shuai/Desktop/lib/mp20-team-a6/sharedLib_a6
+    target.path = /Users/user/Desktop/MPT6final/mp20-team-a6/sharedLib_a6
 
 }
 !isEmpty(target.path): INSTALLS += target

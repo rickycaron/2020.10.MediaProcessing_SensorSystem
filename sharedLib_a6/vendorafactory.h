@@ -2,11 +2,9 @@
 #define VENDORAFACTORY_H
 
 #include "factory.h"
-#include"smokesensor.h"
 
 class VendorAFactory : public Factory
-{
-    enum SensorType{ST_Undefined,ST_SmokeSensor,ST_MotionSensor,ST_GasSensor};
+{    
 
 public:
     VendorAFactory();
