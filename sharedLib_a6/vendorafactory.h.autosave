@@ -1,0 +1,16 @@
+#ifndef VENDORAFACTORY_H
+#define VENDORAFACTORY_H
+
+#include "factory.h"
+
+class VendorAFactory : public Factory
+{    
+
+public:
+    VendorAFactory();
+    std::shared_ptr<SmokeSensor> createSmokeSensor() ;
+    std::shared_ptr<MotionSensor> createMotionSensor(tm activationTime,tm deactivationTime,int restrication);
+    std::shared_ptr<GasSensor> createGasSensor(string) ;
+};
+//hello!!!!!!!
+#endif // VENDORAFACTORY_H

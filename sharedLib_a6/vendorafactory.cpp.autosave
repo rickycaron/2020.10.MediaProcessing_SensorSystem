@@ -1,0 +1,27 @@
+#include "vendorafactory.h"
+#include <iostream>
+
+VendorAFactory::VendorAFactory()
+{
+//    std::cout << "this is VendorAFactory constructor" << std::endl;
+
+}
+
+std::shared_ptr<SmokeSensor> VendorAFactory::createSmokeSensor()
+{
+//   std::cout << "this is VendorAFactory createSmokeSensor function" << std::endl;
+    return std::make_shared<SmokeSensor>(ST_SmokeSensor,"VendorA");
+}
+
+//restrication = distance
+std::shared_ptr<MotionSensor> VendorAFactory::createMotionSensor(tm activationTime, tm deactivationTime, int restrication)
+{
+//  std::cout << "this is VendorAFactory createMotionSensor function" << std::endl;
+    return std::make_shared<MotionSensor>(ST_MotionSensor,"VendorA",activationTime,deactivationTime,restrication);
+}
+
+std::shared_ptr<GasSensor> VendorAFactory::createGasSensor( string gastype)
+{
+//  std::cout << "this is VendorAFactory createGasSensor function" << std::endl;
+    return std::make_shared<GasSensor>(ST_GasSensor,"VendorA",gastype);
+}
