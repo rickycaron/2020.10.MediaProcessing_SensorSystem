@@ -3,12 +3,13 @@
 
 #include <memory>
 #include "sensor.h"
+#include "unit.h"
 
 struct sensorCompById
 {
-        bool operator () (const std::shared_ptr<Sensor> & x, const std::shared_ptr<Sensor> & y) const
+        bool operator () (const std::shared_ptr<Unit> & x, const std::shared_ptr<Unit> & y) const
         {
-                if (x->getId()<y->getId())
+                if (x->getSensor()->getId()<y->getSensor()->getId())
                         return true;
                 else
                         return false;

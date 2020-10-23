@@ -11,7 +11,6 @@ Group::Group(string_view name):
 
 void Group::triggered()
 {
-    //std::cout<<"Group "<<getUnitName()<<" was triggered"<<std::endl;
     for(std::set<std::shared_ptr<Unit>>::iterator i=children.begin();i!=children.end();i++){
         (*i)->triggered();
     }

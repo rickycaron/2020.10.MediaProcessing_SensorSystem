@@ -31,8 +31,8 @@ public:
 private:
     std::string centerName;
     std::unique_ptr<Group> controlUnit;
-    std::set<std::shared_ptr<Sensor>,sensorCompById> sensorById;
-    std::set<std::shared_ptr<Sensor>,sensorCompByVendor> sensorByVendor;
+    std::set<std::shared_ptr<Unit>,sensorCompById> sensorById;
+    std::set<std::shared_ptr<Unit>,sensorCompByVendor> sensorByVendor;
 };
 
 #endif // EMERGENCYCENTER_H

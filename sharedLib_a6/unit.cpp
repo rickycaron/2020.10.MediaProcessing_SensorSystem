@@ -22,6 +22,15 @@ std::shared_ptr<Sensor> Unit::getSensor()
 
 }
 
+void Unit::printAddress()
+{
+    std::cout<<"In";
+    for(int index = address.size()-1; index>=0; index--){
+        std::cout<<" "<<address[index];
+    }
+    std::cout<<": ";
+}
+
 std::vector<std::string> &Unit::getAddress()
 {
     return address;
@@ -66,15 +75,4 @@ void Unit::deleteAddress()
 {
     address.pop_back();
 }
-
-
-//Unit::Unit(std::string_view name, std::shared_ptr<Unit> parent):
-//    unitName{name},unitParent{parent}
-//{
-
-//}
-//void Unit::setParent(const std::shared_ptr<Unit> & parent)
-//{
-//    unitParent=parent;
-//}
 

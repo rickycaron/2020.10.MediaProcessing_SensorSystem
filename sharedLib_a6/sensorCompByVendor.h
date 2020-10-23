@@ -3,15 +3,16 @@
 
 #include <memory>
 #include "sensor.h"
+#include "unit.h"
 
 struct sensorCompByVendor
 {
-        bool operator () (const std::shared_ptr<Sensor> & x, const std::shared_ptr<Sensor> & y) const
+        bool operator () (const std::shared_ptr<Unit> & x, const std::shared_ptr<Unit> & y) const
         {
-                if (x->getVendor()<y->getVendor())
+                if (x->getSensor()->getVendor()<y->getSensor()->getVendor())
                     return true;
-                else if(x->getVendor()==y->getVendor()){
-                    if(x->getId()<y->getId())
+                else if(x->getSensor()->getVendor()==y->getSensor()->getVendor()){
+                    if(x->getSensor()->getId()<y->getSensor()->getId())
                         return true;
                     else
                         return false;
