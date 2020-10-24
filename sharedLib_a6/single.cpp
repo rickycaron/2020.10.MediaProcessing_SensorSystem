@@ -11,6 +11,7 @@ Single::Single(string_view name, const std::shared_ptr<Sensor> &newSensor):
 
 void Single::triggered()
 {
+    std::cout<<getUnitName()<<": "<<std::endl;
     sensor->triggered();
 }
 

@@ -1,10 +1,10 @@
 #include "sendaction.h"
 
-SendAction::SendAction(string receiver,string message) :receiver(receiver),message(message){}
+SendAction::SendAction(string message, string receiver) :receiver(receiver),message(message){}
 
 void SendAction::triggered()
 {
-    cout<<"Send "<<message<<"to "<<receiver<<" !"<<endl;
+    cout<<"Send "<<message<<" to "<<receiver<<"!"<<endl;
 }
 
 

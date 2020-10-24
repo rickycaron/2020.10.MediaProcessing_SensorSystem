@@ -8,7 +8,7 @@ private:
     string receiver;
     string message;
 public:
-    SendAction(string,string);
+    SendAction(string, string);
     void triggered();
     string getReceiver() const;
     void setReceiver(const string &value);

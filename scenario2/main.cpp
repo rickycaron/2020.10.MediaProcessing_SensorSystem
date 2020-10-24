@@ -107,6 +107,9 @@ int main()
 //    smokeSensor_J_shed->getSensor()->activate();
 //    smokeSensor_J_shed->getSensor()->triggered();
 
-    center->overviewById();
+    ++(*V_J_house);
+    V_J_house->triggered();
+
+    //center->overviewById();
     return 0;
 }
