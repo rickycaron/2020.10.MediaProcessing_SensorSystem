@@ -10,12 +10,14 @@ class Factory
 public:
     Factory();
     Factory(string);
+    std::shared_ptr<SmokeSensor> createSmokeSensor() ;
+    std::shared_ptr<MotionSensor> createMotionSensor(tm activationTime,tm deactivationTime);
+    std::shared_ptr<MotionSensor> createMotionSensor(bool);
+    std::shared_ptr<MotionSensor> createMotionSensor(tm activationTime,tm deactivationTime,int restrication);
+    std::shared_ptr<GasSensor> createGasSensor(string) ;
     string getFactoryName() const;
     void setFactoryName(const string &value);
-    std::unique_ptr<SmokeSensor> createSmokeSensor() ;
-    std::unique_ptr<MotionSensor> createMotionSensor(tm activationTime,tm deactivationTime,int restrication);
-    std::unique_ptr<MotionSensor> createMotionSensor(bool);
-    std::unique_ptr<GasSensor> createGasSensor(string) ;
+
 private:
     string factoryName;
 };

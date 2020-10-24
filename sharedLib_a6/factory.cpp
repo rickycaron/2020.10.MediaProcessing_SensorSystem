@@ -1,38 +1,35 @@
 #include "factory.h"
-#include <iostream>
+#include<iostream>
 
 Factory::Factory()
 {
-    std::cout << "this is VendorAFactory constructor with no name" << std::endl;
+//    std::cout << "this is Factory constructor" << std::endl;
+
 }
 
-Factory::Factory(string factoryname):factoryName(factoryname)
+std::shared_ptr<SmokeSensor> Factory::createSmokeSensor()
 {
-    std::cout << "this is VendorAFactory constructor with vendor name :"<<factoryName<< std::endl;
+    return make_shared<SmokeSensor>(ST_SmokeSensor,factoryName);
 }
 
-std::unique_ptr<SmokeSensor> Factory::createSmokeSensor()
+std::shared_ptr<MotionSensor> Factory::createMotionSensor(tm activationTime, tm deactivationTime)
 {
-//   std::cout << "this is VendorAFactory createSmokeSensor function" << std::endl;
-    return std::make_unique<SmokeSensor>(ST_SmokeSensor,factoryName);
+     return make_shared<MotionSensor>(ST_MotionSensor,factoryName,activationTime,deactivationTime);
 }
 
-//restrication = distance
-std::unique_ptr<MotionSensor> Factory::createMotionSensor(tm activationTime, tm deactivationTime, int restrication)
+std::shared_ptr<MotionSensor> Factory::createMotionSensor(tm activationTime, tm deactivationTime, int restrication)
 {
-//  std::cout << "this is VendorAFactory createMotionSensor function" << std::endl;
-    return std::make_unique<MotionSensor>(ST_MotionSensor,factoryName,activationTime,deactivationTime,restrication);
+    return make_shared<MotionSensor>(ST_MotionSensor,factoryName,activationTime,deactivationTime,restrication);
 }
 
-std::unique_ptr<MotionSensor> Factory::createMotionSensor(bool permenativeactive)
+std::shared_ptr<GasSensor> Factory::createGasSensor(string gastype)
 {
-     return std::make_unique<MotionSensor>(ST_MotionSensor,factoryName,permenativeactive);
+    return make_shared<GasSensor>(ST_GasSensor,factoryName,gastype);
 }
 
-std::unique_ptr<GasSensor> Factory::createGasSensor( string gastype)
+std::shared_ptr<MotionSensor> Factory::createMotionSensor(bool permenate)
 {
-//  std::cout << "this is VendorAFactory createGasSensor function" << std::endl;
-    return std::make_unique<GasSensor>(ST_GasSensor,factoryName,gastype);
+    return make_shared<MotionSensor>(ST_MotionSensor,factoryName,permenate);
 }
 
 string Factory::getFactoryName() const
@@ -44,3 +41,4 @@ void Factory::setFactoryName(const string &value)
 {
     factoryName = value;
 }
+
