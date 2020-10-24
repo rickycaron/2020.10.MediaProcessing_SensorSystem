@@ -7,7 +7,7 @@ class Sensor;
 class Single : public Unit
 {
 public:
-    Single(std::string_view name);
+    Single(std::string_view name, const std::shared_ptr<Sensor> &newSensor);
     void triggered() override;
     bool isGroup() override{return false;};
     std::shared_ptr<Sensor> getSensor() override;

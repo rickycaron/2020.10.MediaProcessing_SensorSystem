@@ -21,15 +21,12 @@ public:
     virtual void deleteAddress();
     virtual void triggered();
     virtual std::shared_ptr<Sensor> getSensor();
+    void printAddress();
     virtual void activate();
     virtual void deactivate();
 private:
     std::string unitName;
-    //std::shared_ptr<Unit> unitParent;
     std::vector<std::string> address;
 };
 
 #endif // UNIT_H
-//Unit(std::string_view name, std::shared_ptr<Unit> parent);
-//void setParent(const std::shared_ptr<Unit> & parent);
-//const std::shared_ptr<Unit> & getUnitParent() const{return unitParent;};

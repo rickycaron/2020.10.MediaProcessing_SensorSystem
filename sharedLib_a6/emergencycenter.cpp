@@ -75,16 +75,16 @@ void EmergencyCenter::triggered()
 void EmergencyCenter::addToSensorSet(const std::shared_ptr<Unit> & newUnit)
 {
     if(!newUnit->isGroup()){
-        sensorById.insert(newUnit->getSensor());
-        sensorByVendor.insert(newUnit->getSensor());
+        sensorById.insert(newUnit);
+        sensorByVendor.insert(newUnit);
     }
 }
 
 void EmergencyCenter::deleteFromSensorSet(const std::shared_ptr<Unit> &oldUnit)
 {
     if(!oldUnit->isGroup()){
-        sensorById.erase(oldUnit->getSensor());
-        sensorByVendor.erase(oldUnit->getSensor());
+        sensorById.insert(oldUnit);
+        sensorByVendor.insert(oldUnit);
     }
 }
 
@@ -92,15 +92,17 @@ void EmergencyCenter::overviewById() const
 {
     std::cout<<"An overview of all sensors ordered by sensorId"<<std::endl;
     for(auto i=sensorById.begin();i!=sensorById.end();i++){
-        std::cout<<(*i)->getAllInformation()<<std::endl;
+        (*i)->printAddress();
+        std::cout<<(*i)->getSensor()->getAllInformation()<<std::endl;
     }
 }
 
 void EmergencyCenter::overviewByVendor() const
 {
     std::cout<<"An overview of all sensors ordered by Vendor:"<<std::endl;
-    for(std::set<std::shared_ptr<Sensor>>::iterator i=sensorByVendor.begin();i!=sensorByVendor.end();i++){
-        std::cout<<(*i)->getAllInformation()<<std::endl;
+    for(auto i=sensorByVendor.begin();i!=sensorByVendor.end();i++){
+        (*i)->printAddress();
+        std::cout<<(*i)->getSensor()->getAllInformation()<<std::endl;
     }
 }
 

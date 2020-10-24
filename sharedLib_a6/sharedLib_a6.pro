@@ -53,8 +53,7 @@ HEADERS += \
 
 # Default rules for deployment.
 unix {
-    #target.path = /home/shuai/Desktop/lib/mp20-team-a6/sharedLib_a6
-    target.path = /Users/user/Desktop/MPT6final/mp20-team-a6/sharedLib_a6
+    target.path = /home/yuqi/EmergencyCenter/mp20-team-a6/sharedLib_a6
 
 }
 !isEmpty(target.path): INSTALLS += target

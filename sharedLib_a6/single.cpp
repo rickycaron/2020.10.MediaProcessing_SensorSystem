@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-Single::Single(string_view name):
-    Unit(name)
+Single::Single(string_view name, const std::shared_ptr<Sensor> &newSensor):
+    Unit(name),sensor{newSensor}
 {
 
 }
