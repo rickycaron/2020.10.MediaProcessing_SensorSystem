@@ -44,8 +44,8 @@ int main()
     auto emailToV = make_shared<SendAction>("an email", "vicky at vicky.cooke@gmail.com");
     auto alarm_D_house = make_shared<AlarmAction>("Dave's house alarm");
     auto alarmSS = make_shared<AlarmAction>("the sprinkler system");
-    auto selfAlarm = make_shared<AlarmAction>(" ");
-    auto sendEmail = make_shared<SendAction>("an email", " ");
+    auto selfAlarm = make_shared<AlarmAction>("alarm");
+    auto sendEmail = make_shared<SendAction>("an email", "Kaitlin");
 
     //create sensors in John's shed
     auto smokeSensor_J_shed = make_shared<Single>("smokeSensor_J_shed", Smokey->createSmokeSensor());
@@ -101,15 +101,39 @@ int main()
     motionSensor_K_lab->getSensor()->addEmergrncyAction(sendEmail);
     center->setRelation(K_lab, motionSensor_K_lab);
 
-//    vector<string> address = {"smokeSensor_J_shed","John's shed","Vicky and John’s house","neighborhood"};
-//    center->findUnit(address)->getSensor()->activate();
-//    center->findUnit(address)->getSensor()->triggered();
-//    smokeSensor_J_shed->getSensor()->activate();
-//    smokeSensor_J_shed->getSensor()->triggered();
 
-    ++(*V_J_house);
-    V_J_house->triggered();
+    //Activate and test the smoke sensor in shed
+//    ++(*smokeSensor_J_shed);
+//    smokeSensor_J_shed->triggered();
 
-    //center->overviewById();
+    //An alternative
+    //vector<string> address = {"smokeSensor_J_shed","John's shed","Vicky and John’s house","neighborhood"};
+    //center->findUnit(address)->getSensor()->activate();
+    //center->findUnit(address)->getSensor()->triggered();
+
+    //Activate and test all sensors in Vicky and John’s house
+//    ++(*V_J_house);
+//    V_J_house->triggered();
+//    cout<<"**************************************"<<endl;
+
+    //Test all sensors in the neighborhood
+//    center->triggered();
+//    cout<<"**************************************"<<endl;
+
+    //Activate all sensors using the ++ operator
+    //++(*center);
+
+    //Test the whole neighborhood
+//    center->triggered();
+//    cout<<"**************************************"<<endl;
+
+    //Test the mad scientist’s house
+    //K_house->triggered();
+    motionSensor_K_lab->activate();
+    motionSensor_K_lab->triggered();
+    cout<<"**************************************"<<endl;
+
+    //Give an overview of all sensors ordered by id
+//    center->overviewById();
     return 0;
 }
