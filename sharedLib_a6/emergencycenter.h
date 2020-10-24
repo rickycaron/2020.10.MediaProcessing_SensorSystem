@@ -6,9 +6,9 @@
 #include <set>
 #include "sensorCompById.h"
 #include "sensorCompByVendor.h"
+#include "unit.h"
+#include "group.h"
 
-class Unit;
-class Group;
 class Sensor;
 class EmergencyCenter
 {
@@ -27,7 +27,6 @@ public:
     void overviewByVendor() const;
     EmergencyCenter & operator ++();
     EmergencyCenter & operator --();
-
 private:
     std::string centerName;
     std::unique_ptr<Group> controlUnit;
