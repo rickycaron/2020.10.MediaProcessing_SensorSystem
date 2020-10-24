@@ -27,20 +27,24 @@ int main()
     center->setRelation(K_house,K_lab);
 
     //create factories
-    auto Smokey = make_unique<Factory>("Smokey");
-    auto IcanCU = make_unique<Factory>("IcanCU");
-    auto BreatheLabs = make_unique<Factory>("BreatheLabs");
-    auto BurningInc = make_unique<Factory>("BurningInc");
-    auto TN2S = make_unique<Factory>("TN2S");
+    auto Smokey = make_shared<Factory>("Smokey");
+    auto IcanCU = make_shared<Factory>("IcanCU");
+    auto BreatheLabs = make_shared<Factory>("BreatheLabs");
+    auto BurningInc = make_shared<Factory>("BurningInc");
+    auto TN2S = make_shared<Factory>("TN2S");
 
     //create sensors
     auto smokeSensor1 = make_shared<Single>("smokeSensor1", Smokey->createSmokeSensor());
-    //auto motionSensor1 = make_shared<Single>("motionSensor1",IcanCU->createMotionSensor());
+    auto motionSensor1 = make_shared<Single>("motionSensor1",IcanCU->createMotionSensor(true));
     center->setRelation(J_shed, smokeSensor1);
-    //center->setRelation(J_shed, motionSensor1);
+    center->setRelation(J_shed, motionSensor1);
 
+    tm tm1 = {0};
+    tm1.tm_hour = 22;
+    tm tm2 = {0};
+    tm2.tm_hour = 7;
     auto smokeSensor2 = make_shared<Single>("smokeSensor2", Smokey->createSmokeSensor());
-    //auto motionSensor2 = make_shared<Single>("motionSensor2",IcanCU->createMotionSensor());
+    auto motionSensor2 = make_shared<Single>("motionSensor2",IcanCU->createMotionSensor(tm1, tm2));
     center->setRelation(V_kitchen, smokeSensor2);
     //center->setRelation(V_kitchen, motionSensor2);
 
@@ -54,6 +58,7 @@ int main()
     center->setRelation(K_lab, gasSensor2);
     //center->setRelation(K_lab, motionSensor3);
 
-    std::vector<std::string> address = {"","",};
+    //std::vector<std::string> address = {"","",};
+    std::cout<<*(gasSensor1->getSensor())<<std::endl;
     return 0;
 }

@@ -4,7 +4,12 @@
 Factory::Factory()
 {
 //    std::cout << "this is Factory constructor" << std::endl;
+}
 
+Factory::Factory(string_view name):
+    factoryName{name}
+{
+//    std::cout << "this is Factory constructor" << std::endl;
 }
 
 std::shared_ptr<SmokeSensor> Factory::createSmokeSensor()

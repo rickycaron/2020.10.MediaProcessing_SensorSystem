@@ -9,7 +9,7 @@ class Factory
 {    
 public:
     Factory();
-    Factory(string);
+    Factory(string_view name);
     std::shared_ptr<SmokeSensor> createSmokeSensor() ;
     std::shared_ptr<MotionSensor> createMotionSensor(tm activationTime,tm deactivationTime);
     std::shared_ptr<MotionSensor> createMotionSensor(bool);
