@@ -32,8 +32,8 @@ int main()
     auto smokesensorMoon=make_shared<Single>("smoke sensor Moon", myfactory->createSmokeSensor());
     tm tm1,tm2={0};
     tm1.tm_hour=20;
-    tm1.tm_min=0;
     tm2.tm_hour=8;
+    tm1.tm_min=0;
     tm2.tm_min=0;
     auto motionsensorMoon=make_shared<Single>("smoke sensor Moon Unit ",myfactory->createMotionSensor(tm1,tm2,10));
     auto smokesensorDweezil=make_shared<Single>("smoke sensor Dweezil", myfactory->createSmokeSensor());
