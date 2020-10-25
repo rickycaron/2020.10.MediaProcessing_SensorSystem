@@ -4,7 +4,7 @@ SendAction::SendAction(string message, string receiver) :receiver(receiver),mess
 
 void SendAction::triggered()
 {
-    cout<<"Send "<<message<<" to "<<receiver<<"!"<<endl;
+    cout<<"***!!!Send "<<message<<" to "<<receiver<<"!***"<<endl;
 }
 
 

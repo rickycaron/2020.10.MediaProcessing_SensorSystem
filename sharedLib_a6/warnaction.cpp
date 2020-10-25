@@ -14,5 +14,5 @@ WarnAction::WarnAction(string warner):warner(warner){}
 
 void WarnAction::triggered()
 {
-    cout<<"Warn "<<warner<<" !"<<endl;
+    cout<<"***!!!Warn "<<warner<<" !***"<<endl;
 }

@@ -18,7 +18,6 @@ public:
     void printAllInformation();
     string getAllInformation();
     bool activate();// reload activate() fuction in Sensor
-    void deactive();
 
     bool checktime();//check from time is it should be active or inactive now
 };

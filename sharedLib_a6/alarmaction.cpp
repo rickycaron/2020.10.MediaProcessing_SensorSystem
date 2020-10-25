@@ -18,5 +18,5 @@ string AlarmAction::getAlarm()
 }
 
 void AlarmAction::triggered(){
- cout<<"Activating the "<< alarm <<" ."<<endl;
+ cout<<"***!!!Activating the "<< alarm <<" !***"<<endl;
 }
