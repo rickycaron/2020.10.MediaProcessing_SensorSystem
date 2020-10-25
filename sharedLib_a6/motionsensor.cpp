@@ -22,7 +22,7 @@ string MotionSensor::getAllInformation()
         {
             sensorInformation<<"active from "<< activationTime.tm_hour<<":"<<activationTime.tm_min<<" to "<<deactivationTime.tm_hour<<" : "<<deactivationTime.tm_min<<" ,";
         }
-        if(!restrication) sensorInformation<<"has a restricaiton of "<<restrication<<" meters";
+        if(!restrication) sensorInformation<<"has a restricaiton of "<<restrication<<" meters ";
         if(activationState)
             sensorInformation<<"is active now! ";
         else
@@ -33,13 +33,15 @@ string MotionSensor::getAllInformation()
 
 bool MotionSensor::activate()
 {
-    activationState=checktime();
-    return activationState;
-}
-
-void MotionSensor::deactive()
-{
-    activationState=false;
+    if(sensorType == ST_MotionSensor)
+    {
+        activationState=checktime();
+        return activationState;
+    }
+    else{
+        activationState=checktime();
+        return activationState;
+    }
 }
 
 //bool MotionSensor::checktime()
@@ -106,12 +108,11 @@ bool MotionSensor::checktime()
         }
     else
     {
-
         if(acthour > deacthour)
         {
-            if(hournow > acthour || ( (hournow == acthour) && (minnow > actmin)))
+            if(hournow > acthour ||( (hournow == acthour) && (minnow > actmin)))
             {result=true;}
-            else if(hournow<deacthour || (hournow==deacthour &&minnow <= actmin))
+            else if(hournow<deacthour||(hournow==deacthour && minnow <= actmin) )
             {result=true;}
         }
         else if (acthour < deacthour)

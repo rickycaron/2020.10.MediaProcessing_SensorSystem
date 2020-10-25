@@ -95,7 +95,11 @@ int main()
     startTime2.tm_hour = 4;
     startTime2.tm_min = 40;
     tm stopTime2 = {0};
+<<<<<<< HEAD
+    stopTime2.tm_hour = 16;
+=======
     stopTime2.tm_hour = 9;
+>>>>>>> 205a4f05581ef16889724874d5e6dfc6947417b0
     stopTime2.tm_min = 15;
     auto motionSensor_K_lab = make_shared<Single>("motionSensor_K_lab",IcanCU->createMotionSensor(startTime2,stopTime2));
     motionSensor_K_lab->getSensor()->addEmergrncyAction(sendEmail);
@@ -107,10 +111,16 @@ int main()
 //    smokeSensor_J_shed->triggered();
 
     //An alternative
+<<<<<<< HEAD
     vector<string> address = {"Vicky and John’s house","neighborhood"};
     auto test = center->findUnit(address);
     ++*test;
     center->findUnit(address)->triggered();
+=======
+    vector<string> address = {"smokeSensor_J_shed","John's shed","Vicky and John’s house","neighborhood"};
+    center->findUnit(address)->getSensor()->activate();
+    center->findUnit(address)->getSensor()->triggered();
+>>>>>>> 3aa8feb62255ca00455491b3f330c466b57bf72b
 
     //Activate and test all sensors in Vicky and John’s house
 //    ++(*V_J_house);
@@ -129,8 +139,24 @@ int main()
 //    cout<<"**************************************"<<endl;
 
     //Test the mad scientist’s house
+<<<<<<< HEAD
 //    K_house->triggered();
 //    cout<<"**************************************"<<endl;
+=======
+    K_house->triggered();
+    cout<<"**************************************"<<endl;
+<<<<<<< HEAD
+    motionSensor_K_lab->activate();
+    motionSensor_K_lab->triggered();
+    cout<<*(motionSensor_K_lab->getSensor())<<endl;
+    bool b = motionSensor_K_lab->getSensor()->activate();
+        //motionSensor_K_lab->triggered();
+        if(b){
+            cout<<"!!!"<<endl;
+        }
+=======
+>>>>>>> 205a4f05581ef16889724874d5e6dfc6947417b0
+>>>>>>> 3aa8feb62255ca00455491b3f330c466b57bf72b
 
     //Give an overview of all sensors ordered by id
     //center->overviewById();
