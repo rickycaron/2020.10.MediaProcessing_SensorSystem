@@ -42,42 +42,95 @@ void MotionSensor::deactive()
     activationState=false;
 }
 
+//bool MotionSensor::checktime()
+//{
+//    const time_t now=time(nullptr);
+//    const tm tmnow=*localtime(addressof(now));
+//    int hournow=tmnow.tm_hour;
+//    int minnow=tmnow.tm_min;
+//    if(permenateActive){return true;}
+//    else if(activationTime.tm_hour == deactivationTime.tm_hour && activationTime.tm_min==deactivationTime.tm_min)
+//        {
+//        cout<<"Wong activation and deactivation time for motion sensor of id "<<id<<"endl";
+//        return false;;
+//        }
+//    else
+//    {
+//        time_t now=time(0);
+//        tm *tmnow=localtime(&now);
+//        int hournow=tmnow->tm_hour;
+//        int minnow=tmnow->tm_min;
+//        if(activationTime.tm_hour > deactivationTime.tm_hour)
+//        {
+//            if(hournow > activationTime.tm_hour ||( (hournow == activationTime.tm_hour) && (minnow > activationTime.tm_min)))
+//                return true;
+//            else if(hournow<deactivationTime.tm_hour||(hournow==deactivationTime.tm_hour &&minnow <= activationTime.tm_min))
+//                return true;
+//        }
+//        else if (activationTime.tm_hour < deactivationTime.tm_hour)
+//        {
+//            if(hournow > activationTime.tm_hour && hournow < deactivationTime.tm_hour)
+//                return true;
+//            else if (hournow==activationTime.tm_hour && tmnow->tm_min >= activationTime.tm_min)
+//                return true;
+//            else if(hournow==deactivationTime.tm_hour && tmnow->tm_min <=deactivationTime.tm_min)
+//                return true;
+//        }
+//        else if(activationTime.tm_hour == deactivationTime.tm_hour)
+//        {
+//            if (hournow==activationTime.tm_hour && tmnow->tm_min >= activationTime.tm_min && tmnow->tm_min <= deactivationTime.tm_min)
+//                return true;
+//        }
+//        else
+//            return false;
+//    }
+//}
+
 bool MotionSensor::checktime()
 {
-    if(permenateActive){return true;}
-    else if(activationTime.tm_hour == deactivationTime.tm_hour && activationTime.tm_min==deactivationTime.tm_min)
+    const time_t now=time(nullptr);
+    const tm tmnow=*localtime(addressof(now));
+    int hournow=tmnow.tm_hour;
+    int minnow=tmnow.tm_min;
+    bool result=false;
+    int acthour=activationTime.tm_hour;
+    int actmin=activationTime.tm_min;
+    int deacthour=deactivationTime.tm_hour;
+    int deactmin=deactivationTime.tm_min;
+
+    if(permenateActive){result=true;}
+    else if(acthour == deacthour && actmin==deactmin)
         {
         cout<<"Wong activation and deactivation time for motion sensor of id "<<id<<"endl";
-        return false;;
+        result= false;
         }
     else
     {
-        time_t now=time(0);
-        tm *tmnow=localtime(&now);
-        int hournow=tmnow->tm_hour;
-        int minnow=tmnow->tm_min;
-        if(activationTime.tm_hour > deactivationTime.tm_hour)
+
+        if(acthour > deacthour)
         {
-            if(hournow > activationTime.tm_hour ||( (hournow == activationTime.tm_hour) && (minnow > activationTime.tm_min)))
-                return true;
-            else if(hournow<deactivationTime.tm_hour||(hournow==deactivationTime.tm_hour &&minnow <= activationTime.tm_min))
-                return true;
+            if(hournow > acthour || ( (hournow == acthour) && (minnow > actmin)))
+            {result=true;}
+            else if(hournow<deacthour || (hournow==deacthour &&minnow <= actmin))
+            {result=true;}
         }
-        else if (activationTime.tm_hour < deactivationTime.tm_hour)
+        else if (acthour < deacthour)
         {
-            if(hournow > activationTime.tm_hour && hournow < deactivationTime.tm_hour)
-                return true;
-            else if (hournow==activationTime.tm_hour && tmnow->tm_min >= activationTime.tm_min)
-                return true;
-            else if(hournow==deactivationTime.tm_hour && tmnow->tm_min <=deactivationTime.tm_min)
-                return true;
+            if(hournow > acthour && hournow < deacthour)
+                {result=true;}
+            else if (hournow==acthour && minnow >= actmin)
+                {result=true;}
+            else if(hournow==deacthour && minnow <=deactmin)
+                {result=true;}
         }
-        else if(activationTime.tm_hour == deactivationTime.tm_hour)
+        else if(acthour == deacthour)
         {
-            if (hournow==activationTime.tm_hour && tmnow->tm_min >= activationTime.tm_min && tmnow->tm_min <= deactivationTime.tm_min)
-                return true;
+            if (hournow==acthour && minnow >= actmin && minnow <= deactmin)
+                {result=true;}
         }
         else
-            return false;
+           {result=false;}
     }
+
+    return result;
 }
