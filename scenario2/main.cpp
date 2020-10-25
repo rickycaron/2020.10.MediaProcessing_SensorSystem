@@ -95,7 +95,11 @@ int main()
     startTime2.tm_hour = 4;
     startTime2.tm_min = 40;
     tm stopTime2 = {0};
+<<<<<<< HEAD
     stopTime2.tm_hour = 16;
+=======
+    stopTime2.tm_hour = 9;
+>>>>>>> 205a4f05581ef16889724874d5e6dfc6947417b0
     stopTime2.tm_min = 15;
     auto motionSensor_K_lab = make_shared<Single>("motionSensor_K_lab",IcanCU->createMotionSensor(startTime2,stopTime2));
     motionSensor_K_lab->getSensor()->addEmergrncyAction(sendEmail);
@@ -117,22 +121,20 @@ int main()
     cout<<"**************************************"<<endl;
 
     //Test all sensors in the neighborhood
-//    center->triggered();
-//    cout<<"**************************************"<<endl;
+    center->triggered();
+    cout<<"**************************************"<<endl;
 
     //Activate all sensors using the ++ operator
-    //++(*center);
+    ++(*center);
 
     //Test the whole neighborhood
-//    center->triggered();
-//    cout<<"**************************************"<<endl;
+    center->triggered();
+    cout<<"**************************************"<<endl;
 
     //Test the mad scientist’s house
-    //K_house->triggered();
-    motionSensor_K_lab->activate();
-    motionSensor_K_lab->triggered();
-    cout<<*(motionSensor_K_lab->getSensor())<<endl;
+    K_house->triggered();
     cout<<"**************************************"<<endl;
+<<<<<<< HEAD
     motionSensor_K_lab->activate();
     motionSensor_K_lab->triggered();
     cout<<*(motionSensor_K_lab->getSensor())<<endl;
@@ -141,8 +143,10 @@ int main()
         if(b){
             cout<<"!!!"<<endl;
         }
+=======
+>>>>>>> 205a4f05581ef16889724874d5e6dfc6947417b0
 
     //Give an overview of all sensors ordered by id
-//    center->overviewById();
+    center->overviewById();
     return 0;
 }

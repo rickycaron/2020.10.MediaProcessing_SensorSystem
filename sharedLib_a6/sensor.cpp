@@ -61,7 +61,11 @@ void Sensor::triggered()
 {
     if(!activationState)
     {
+<<<<<<< HEAD
         cout<<"sensor of id "<<id<<" isn't active now, can't be triggerd!"<<endl;
+=======
+        cout<<"sensor of id"<<id<<" isn't active now, can't be triggerd!"<<endl;
+>>>>>>> 205a4f05581ef16889724874d5e6dfc6947417b0
         return;
     }
     cout<<"sensor of id "<<id<<" is active now, triggerd!"<<endl;

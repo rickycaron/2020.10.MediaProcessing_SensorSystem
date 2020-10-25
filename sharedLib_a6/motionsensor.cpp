@@ -44,6 +44,50 @@ bool MotionSensor::activate()
     }
 }
 
+//bool MotionSensor::checktime()
+//{
+//    const time_t now=time(nullptr);
+//    const tm tmnow=*localtime(addressof(now));
+//    int hournow=tmnow.tm_hour;
+//    int minnow=tmnow.tm_min;
+//    if(permenateActive){return true;}
+//    else if(activationTime.tm_hour == deactivationTime.tm_hour && activationTime.tm_min==deactivationTime.tm_min)
+//        {
+//        cout<<"Wong activation and deactivation time for motion sensor of id "<<id<<"endl";
+//        return false;;
+//        }
+//    else
+//    {
+//        time_t now=time(0);
+//        tm *tmnow=localtime(&now);
+//        int hournow=tmnow->tm_hour;
+//        int minnow=tmnow->tm_min;
+//        if(activationTime.tm_hour > deactivationTime.tm_hour)
+//        {
+//            if(hournow > activationTime.tm_hour ||( (hournow == activationTime.tm_hour) && (minnow > activationTime.tm_min)))
+//                return true;
+//            else if(hournow<deactivationTime.tm_hour||(hournow==deactivationTime.tm_hour &&minnow <= activationTime.tm_min))
+//                return true;
+//        }
+//        else if (activationTime.tm_hour < deactivationTime.tm_hour)
+//        {
+//            if(hournow > activationTime.tm_hour && hournow < deactivationTime.tm_hour)
+//                return true;
+//            else if (hournow==activationTime.tm_hour && tmnow->tm_min >= activationTime.tm_min)
+//                return true;
+//            else if(hournow==deactivationTime.tm_hour && tmnow->tm_min <=deactivationTime.tm_min)
+//                return true;
+//        }
+//        else if(activationTime.tm_hour == deactivationTime.tm_hour)
+//        {
+//            if (hournow==activationTime.tm_hour && tmnow->tm_min >= activationTime.tm_min && tmnow->tm_min <= deactivationTime.tm_min)
+//                return true;
+//        }
+//        else
+//            return false;
+//    }
+//}
+
 bool MotionSensor::checktime()
 {
     const time_t now=time(nullptr);
@@ -67,9 +111,15 @@ bool MotionSensor::checktime()
 
         if(acthour > deacthour)
         {
+<<<<<<< HEAD
             if(hournow > acthour ||( (hournow == acthour) && (minnow > actmin)))
             {result=true;}
             else if(hournow<deacthour||(hournow==deacthour &&minnow <= actmin))
+=======
+            if(hournow > acthour || ( (hournow == acthour) && (minnow > actmin)))
+            {result=true;}
+            else if(hournow<deacthour || (hournow==deacthour &&minnow <= actmin))
+>>>>>>> 205a4f05581ef16889724874d5e6dfc6947417b0
             {result=true;}
         }
         else if (acthour < deacthour)
