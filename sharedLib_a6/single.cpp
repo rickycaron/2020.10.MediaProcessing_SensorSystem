@@ -11,6 +11,9 @@ Single::Single(string_view name, const std::shared_ptr<Sensor> &newSensor):
 
 void Single::triggered()
 {
+    if(sensor->getActivationState()){
+        std::cout<<getUnitName()<<" is triggered."<<std::endl;
+    }
     sensor->triggered();
 }
 

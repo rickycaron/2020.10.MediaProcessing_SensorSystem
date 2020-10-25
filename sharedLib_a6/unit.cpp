@@ -25,10 +25,10 @@ std::shared_ptr<Sensor> Unit::getSensor()
 void Unit::printAddress()
 {
     std::cout<<"In";
-    for(int index = address.size()-1; index>=0; index--){
-        std::cout<<" "<<address[index];
+    for(int index = address.size()-1; index>=2; index--){
+        std::cout<<" "<<address[index]<<",";
     }
-    std::cout<<": ";
+    std::cout<<" "<<address[1]<<": ";
 }
 
 std::vector<std::string> &Unit::getAddress()

@@ -34,6 +34,11 @@ string Sensor::getVendor() const
     return vendor;
 }
 
+bool Sensor::getActivationState() const
+{
+    return activationState;
+}
+
 Sensor::Sensor(SensorType sensortype, string vender): sensorType(sensortype),vendor(vender)
 {
     Sensor::sensorCount++;
