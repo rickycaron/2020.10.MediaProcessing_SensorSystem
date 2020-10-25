@@ -1,8 +1,6 @@
 #include "motionsensor.h"
 
-MotionSensor::MotionSensor(SensorType stringtype, string vendor):Sensor(stringtype,vendor){
-    permenateActive=true;
-}
+MotionSensor::MotionSensor(SensorType stringtype, string vendor):Sensor(stringtype,vendor){}
 
 MotionSensor::MotionSensor(SensorType stringtype, string vendor,tm activetime,tm deactivetime):Sensor(stringtype,vendor),activationTime(activetime),deactivationTime(deactivetime){}
 
@@ -67,7 +65,7 @@ bool MotionSensor::checktime()
         }
         else if (activationTime.tm_hour < deactivationTime.tm_hour)
         {
-            if(hournow > activationTime.tm_hour && hournow<activationTime.tm_hour)
+            if(hournow > activationTime.tm_hour && hournow < deactivationTime.tm_hour)
                 return true;
             else if (hournow==activationTime.tm_hour && tmnow->tm_min >= activationTime.tm_min)
                 return true;

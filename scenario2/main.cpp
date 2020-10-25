@@ -95,7 +95,7 @@ int main()
     startTime2.tm_hour = 4;
     startTime2.tm_min = 40;
     tm stopTime2 = {0};
-    stopTime2.tm_hour = 9;
+    stopTime2.tm_hour = 15;
     stopTime2.tm_min = 15;
     auto motionSensor_K_lab = make_shared<Single>("motionSensor_K_lab",IcanCU->createMotionSensor(startTime2,stopTime2));
     motionSensor_K_lab->getSensor()->addEmergrncyAction(sendEmail);
