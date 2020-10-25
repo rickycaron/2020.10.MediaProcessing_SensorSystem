@@ -627,7 +627,17 @@ main.o: ../scenario2/main.cpp ../sharedLib_a6/emergencycenter.h \
 		../sharedLib_a6/sensor.h \
 		../sharedLib_a6/emergencyaction.h \
 		../sharedLib_a6/unit.h \
-		../sharedLib_a6/sensorCompByVendor.h
+		../sharedLib_a6/sensorCompByVendor.h \
+		../sharedLib_a6/group.h \
+		../sharedLib_a6/unitComp.h \
+		../sharedLib_a6/single.h \
+		../sharedLib_a6/factory.h \
+		../sharedLib_a6/smokesensor.h \
+		../sharedLib_a6/motionsensor.h \
+		../sharedLib_a6/gassensor.h \
+		../sharedLib_a6/alarmaction.h \
+		../sharedLib_a6/warnaction.h \
+		../sharedLib_a6/sendaction.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../scenario2/main.cpp
 
 ####### Install
