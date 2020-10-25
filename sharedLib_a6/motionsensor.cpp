@@ -12,19 +12,7 @@ MotionSensor::MotionSensor(SensorType stringtype, string vendor,tm activetime,tm
 
 void MotionSensor::printAllInformation()
 {
-    cout<<"Motion sensor to detect of id "<<id<<" ,produce by "<<vendor<<" is ";
-    if(permenateActive) cout<<"permenate acitve ,";
-    else if (activationTime.tm_hour!= deactivationTime.tm_hour && activationTime.tm_hour!=0)
-    {
-        cout<<"active from "<< activationTime.tm_hour<<":"<<activationTime.tm_min;
-        cout<<" to "<<deactivationTime.tm_hour<<" : "<<deactivationTime.tm_min<<" ,";
-    }
-    if(!restrication) cout<<"has a restricaiton of "<<restrication<<" meters";
-    if(activationState)
-        cout<<"is active now! ";
-    else
-        cout<<"is not active now! ";
-    cout<<endl;
+    cout<<getAllInformation()<<endl;
 }
 
 string MotionSensor::getAllInformation()

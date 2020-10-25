@@ -133,6 +133,9 @@ int main()
     motionSensor_K_lab->triggered();
     cout<<*(motionSensor_K_lab->getSensor())<<endl;
     cout<<"**************************************"<<endl;
+    motionSensor_K_lab->activate();
+    motionSensor_K_lab->triggered();
+    cout<<*(motionSensor_K_lab->getSensor())<<endl;
 
     //Give an overview of all sensors ordered by id
 //    center->overviewById();
