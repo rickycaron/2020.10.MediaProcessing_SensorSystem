@@ -108,18 +108,11 @@ bool MotionSensor::checktime()
         }
     else
     {
-
         if(acthour > deacthour)
         {
-<<<<<<< HEAD
             if(hournow > acthour ||( (hournow == acthour) && (minnow > actmin)))
             {result=true;}
-            else if(hournow<deacthour||(hournow==deacthour &&minnow <= actmin))
-=======
-            if(hournow > acthour || ( (hournow == acthour) && (minnow > actmin)))
-            {result=true;}
-            else if(hournow<deacthour || (hournow==deacthour &&minnow <= actmin))
->>>>>>> 205a4f05581ef16889724874d5e6dfc6947417b0
+            else if(hournow<deacthour||(hournow==deacthour && minnow <= actmin) )
             {result=true;}
         }
         else if (acthour < deacthour)
