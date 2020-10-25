@@ -17,7 +17,7 @@ CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefau
 DEFINES       = -DQT_QML_DEBUG
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.13 -Wall -Wextra -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.13 -Wall -Wextra -fPIC $(DEFINES)
-INCPATH       = -I../scenario2 -I. -I../sharedLib_a6 -I../sharedLib_a6 -I../../../../Qt/5.15.1/clang_64/mkspecs/macx-clang
+INCPATH       = -I../scenario2 -I. -I../sharedLib_a6 -I../../../../Qt/5.15.1/clang_64/mkspecs/macx-clang
 QMAKE         = /Users/user/Qt/5.15.1/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -649,7 +649,10 @@ main.o: ../scenario2/main.cpp ../sharedLib_a6/emergencycenter.h \
 		../sharedLib_a6/factory.h \
 		../sharedLib_a6/smokesensor.h \
 		../sharedLib_a6/motionsensor.h \
-		../sharedLib_a6/gassensor.h
+		../sharedLib_a6/gassensor.h \
+		../sharedLib_a6/alarmaction.h \
+		../sharedLib_a6/warnaction.h \
+		../sharedLib_a6/sendaction.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../scenario2/main.cpp
 
 ####### Install

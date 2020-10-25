@@ -60,7 +60,11 @@ void Sensor::deactivate()
 void Sensor::triggered()
 {
     if(!activationState)
+    {
+        cout<<"sensor of id"<<id<<"isn't active now, can't be triggerd!"<<endl;
         return;
+    }
+    cout<<"sensor of id"<<id<<"is active now, triggerd!"<<endl;
     for(int i = 0 ; i < int(emergencyActions.size());i++)
     {
       emergencyActions[i]->triggered();
