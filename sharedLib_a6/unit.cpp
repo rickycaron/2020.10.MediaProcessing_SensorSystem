@@ -38,12 +38,14 @@ std::vector<std::string> &Unit::getAddress()
 
 Unit &Unit::operator ++()
 {
-
+    activate();
+    return *this;
 }
 
 Unit &Unit::operator --()
 {
-
+    deactivate();
+    return *this;
 }
 
 void Unit::activate()

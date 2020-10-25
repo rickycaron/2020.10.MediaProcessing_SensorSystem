@@ -103,35 +103,36 @@ int main()
 
 
     //Activate and test the smoke sensor in shed
-    ++(*smokeSensor_J_shed);
-    smokeSensor_J_shed->triggered();
+//    ++(*smokeSensor_J_shed);
+//    smokeSensor_J_shed->triggered();
 
     //An alternative
-    //vector<string> address = {"smokeSensor_J_shed","John's shed","Vicky and John’s house","neighborhood"};
-    //center->findUnit(address)->getSensor()->activate();
-    //center->findUnit(address)->getSensor()->triggered();
+    vector<string> address = {"Vicky and John’s house","neighborhood"};
+    auto test = center->findUnit(address);
+    ++*test;
+    center->findUnit(address)->triggered();
 
     //Activate and test all sensors in Vicky and John’s house
-    ++(*V_J_house);
-    V_J_house->triggered();
-    cout<<"**************************************"<<endl;
+//    ++(*V_J_house);
+//    V_J_house->triggered();
+//    cout<<"**************************************"<<endl;
 
     //Test all sensors in the neighborhood
-    center->triggered();
-    cout<<"**************************************"<<endl;
+//    center->triggered();
+//    cout<<"**************************************"<<endl;
 
     //Activate all sensors using the ++ operator
-    ++(*center);
+//    ++(*center);
 
     //Test the whole neighborhood
-    center->triggered();
-    cout<<"**************************************"<<endl;
+//    center->triggered();
+//    cout<<"**************************************"<<endl;
 
     //Test the mad scientist’s house
-    K_house->triggered();
-    cout<<"**************************************"<<endl;
+//    K_house->triggered();
+//    cout<<"**************************************"<<endl;
 
     //Give an overview of all sensors ordered by id
-    center->overviewById();
+    //center->overviewById();
     return 0;
 }
