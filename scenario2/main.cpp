@@ -95,7 +95,7 @@ int main()
     startTime2.tm_hour = 4;
     startTime2.tm_min = 40;
     tm stopTime2 = {0};
-    stopTime2.tm_hour = 15;
+    stopTime2.tm_hour = 9;
     stopTime2.tm_min = 15;
     auto motionSensor_K_lab = make_shared<Single>("motionSensor_K_lab",IcanCU->createMotionSensor(startTime2,stopTime2));
     motionSensor_K_lab->getSensor()->addEmergrncyAction(sendEmail);
@@ -103,8 +103,8 @@ int main()
 
 
     //Activate and test the smoke sensor in shed
-//    ++(*smokeSensor_J_shed);
-//    smokeSensor_J_shed->triggered();
+    ++(*smokeSensor_J_shed);
+    smokeSensor_J_shed->triggered();
 
     //An alternative
     //vector<string> address = {"smokeSensor_J_shed","John's shed","Vicky and John’s house","neighborhood"};
@@ -112,29 +112,26 @@ int main()
     //center->findUnit(address)->getSensor()->triggered();
 
     //Activate and test all sensors in Vicky and John’s house
-//    ++(*V_J_house);
-//    V_J_house->triggered();
-//    cout<<"**************************************"<<endl;
+    ++(*V_J_house);
+    V_J_house->triggered();
+    cout<<"**************************************"<<endl;
 
     //Test all sensors in the neighborhood
-//    center->triggered();
-//    cout<<"**************************************"<<endl;
+    center->triggered();
+    cout<<"**************************************"<<endl;
 
     //Activate all sensors using the ++ operator
-    //++(*center);
+    ++(*center);
 
     //Test the whole neighborhood
-//    center->triggered();
-//    cout<<"**************************************"<<endl;
+    center->triggered();
+    cout<<"**************************************"<<endl;
 
     //Test the mad scientist’s house
-    //K_house->triggered();
-    motionSensor_K_lab->activate();
-    motionSensor_K_lab->triggered();
-    cout<<*(motionSensor_K_lab->getSensor())<<endl;
+    K_house->triggered();
     cout<<"**************************************"<<endl;
 
     //Give an overview of all sensors ordered by id
-//    center->overviewById();
+    center->overviewById();
     return 0;
 }
